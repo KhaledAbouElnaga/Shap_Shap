@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1041806689164",
+    "project_id": "shap-c03ae",
+    "storage_bucket": "shap-c03ae.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041806689164:android:4874987f194e38c93d8ca9",
+        "android_client_info": {
+          "package_name": "com.example.shap_shap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0JygeU3OQW_u7VQzyLb5b5vihqM8mrj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
