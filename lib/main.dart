@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shap_shap/Screens/3.sign_up_sc/sign_up_sc.dart';
+import 'package:shap_shap/Screens/4.sign_in_sc/sign_in_sc.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/testing_sc.dart';
 import 'firebase_options.dart';
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
         initialRoute: '/splash',
         getPages: [
           GetPage(name: '/splash', page: () => const SplashScreen()),
-          GetPage(name: '/sign_up', page: () => const SignUpSc()),
+          GetPage(name: '/signUp', page: () => const SignUpSc()),
+          GetPage(name: '/signIn', page: () => const SignInSc()),
           GetPage(name: '/testing', page: () => const TestingSc()),
         ],
       ),

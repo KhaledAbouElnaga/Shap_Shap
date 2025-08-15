@@ -4,8 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 
-class SignInGoogleButton extends StatelessWidget {
-  const SignInGoogleButton({super.key});
+class SignUpGoogleButton extends StatelessWidget {
+  const SignUpGoogleButton({super.key});
 
   @override
   Widget build(BuildContext context) {

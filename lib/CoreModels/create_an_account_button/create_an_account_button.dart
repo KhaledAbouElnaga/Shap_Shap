@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shap_shap/factory/color_factory.dart';
-import 'package:shap_shap/factory/images_factory.dart';
 
 class CreateAccountButton extends StatelessWidget {
   const CreateAccountButton({super.key});
