@@ -72,6 +72,14 @@ class SignUpSc extends StatelessWidget {
                       isPass: true,
                       backgroundColor: ColorFactory.background,
                     ),
+                    SizedBox(height: 25.h),
+                    Row(
+                      children: [
+                        Expanded(child: CreateAccountButton()),
+                        SizedBox(width: 10.w),
+                        Expanded(child: SignUpGoogleButton()),
+                      ],
+                    ),
                     SizedBox(height: 15.h),
                     Container(
                       padding: EdgeInsets.only(left: 16.0.r),
@@ -93,14 +101,6 @@ class SignUpSc extends StatelessWidget {
                           ],
                         ),
                       ),
-                    ),
-                    SizedBox(height: 30.h),
-                    Row(
-                      children: [
-                        Expanded(child: CreateAccountButton()),
-                        SizedBox(width: 10.w),
-                        Expanded(child: SignUpGoogleButton()),
-                      ],
                     ),
                   ],
                 ),
