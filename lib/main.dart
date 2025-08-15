@@ -7,7 +7,7 @@ import 'Screens/1.splash_sc/splash_sc.dart';
 import 'testing_sc.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // مهم جداً قبل أي Firebase.initializeApp
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   Get.lazyPut(() => SplashScController());
