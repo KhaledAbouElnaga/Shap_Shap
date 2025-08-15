@@ -24,7 +24,7 @@ class SplashScController extends GetxController {
       return;
     } else {
       _navigated = true;
-      Get.offAllNamed('/testing-screen');
+      Get.offAllNamed('/sign_up');
     }
   }
 }

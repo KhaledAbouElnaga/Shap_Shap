@@ -23,6 +23,7 @@ dependencies:
   firebase_auth: ^4.6.4   # لو هتستخدم تسجيل دخول
   cloud_firestore: 4.17.5 # لو هتستخدم قاعدة بيانات
   flutter_svg: ^2.2.0
+  
 
 
 
@@ -41,8 +42,9 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/images/4.png
-
+    - assets/images/sign_up.svg
+    - assets/images/google.svg
+    - assets/images/account.svg
     - assets/animations/
     - assets/fonts/
 
