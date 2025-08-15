@@ -49,7 +49,7 @@ class SignUpSc extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 30.sp,
                           fontWeight: FontWeight.bold,
-                          color: ColorFactory.secondaryColor,
+                          color: ColorFactory.textPrimary,
                         ),
                       ),
                     ),
@@ -58,12 +58,14 @@ class SignUpSc extends StatelessWidget {
                       hintText: 'Name',
                       controller: TextEditingController(),
                       backgroundColor: ColorFactory.background,
+                      image: ImagesFactory.person,
                     ),
                     SizedBox(height: 25.h),
                     InputFieldWidget(
                       hintText: 'Email',
                       controller: TextEditingController(),
                       backgroundColor: ColorFactory.background,
+                      image: ImagesFactory.email,
                     ),
                     SizedBox(height: 25.h),
                     InputFieldWidget(
@@ -71,6 +73,7 @@ class SignUpSc extends StatelessWidget {
                       controller: TextEditingController(),
                       isPass: true,
                       backgroundColor: ColorFactory.background,
+                      image: ImagesFactory.lock,
                     ),
                     SizedBox(height: 25.h),
                     Row(
@@ -85,14 +88,15 @@ class SignUpSc extends StatelessWidget {
                       padding: EdgeInsets.only(left: 16.0.r),
                       child: RichText(
                         text: TextSpan(
-                          text: 'Do you have account? ',
-                          style: TextStyle(color: Colors.black),
+                          text: 'Do you have an account? ',
+                          style: TextStyle(
+                            color: ColorFactory.black,
+                            fontWeight: FontWeight.w500,
+                          ),
                           children: [
                             TextSpan(
                               text: 'Sign In',
-                              style: TextStyle(
-                                color: ColorFactory.secondaryColor,
-                              ),
+                              style: TextStyle(color: ColorFactory.textPrimary),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
                                   Get.toNamed(("/signIn"));

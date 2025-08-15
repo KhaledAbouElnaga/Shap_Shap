@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shap_shap/factory/color_factory.dart';
+import 'package:shap_shap/factory/images_factory.dart';
 
 class CreateAccountButton extends StatelessWidget {
   const CreateAccountButton({super.key});
@@ -25,14 +26,14 @@ class CreateAccountButton extends StatelessWidget {
             SizedBox(
               height: 20.r,
               width: 20.r,
-              child: SvgPicture.asset("assets/images/account.svg"),
+              child: SvgPicture.asset(ImagesFactory.account),
             ),
             SizedBox(width: 8.w),
             Flexible(
               child: Text(
                 'New Account',
                 style: TextStyle(
-                  color: ColorFactory.secondaryColor,
+                  color: ColorFactory.textPrimary,
                   fontSize: 14.sp,
                 ),
               ),

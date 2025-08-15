@@ -31,7 +31,7 @@ class SignUpGoogleButton extends StatelessWidget {
             Text(
               'Google',
               style: TextStyle(
-                color: ColorFactory.secondaryColor,
+                color: ColorFactory.textPrimary,
                 fontSize: 14.sp,
               ),
             ),
