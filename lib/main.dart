@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
 import 'package:shap_shap/Screens/3.sign_up&in_screens/sign_up_sc.dart';
-import 'package:shap_shap/Screens/3.sign_up&in_screens/4.sign_in_sc/log_in_sc.dart';
+import 'package:shap_shap/Screens/3.sign_up&in_screens/4.login_sc/login_sc.dart';
 import 'package:shap_shap/Screens/5.categories_sc/categories_sc.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'firebase_options.dart';
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         getPages: [
           GetPage(name: '/splash', page: () => const SplashScreen()),
           GetPage(name: '/signUp', page: () => const SignUpSc()),
-          GetPage(name: '/signIn', page: () => const LogInSc()),
+          GetPage(name: '/login', page: () => const LoginSc()),
           GetPage(name: '/categories_sc', page: () => const CategoriesSc()),
         ],
       ),

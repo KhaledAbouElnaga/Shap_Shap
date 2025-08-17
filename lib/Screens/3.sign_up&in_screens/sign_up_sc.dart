@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:shap_shap/CoreModels/create_an_account_button/create_an_account_button.dart';
-import 'package:shap_shap/CoreModels/sign_up_google_button/sign_up_google.dart';
+import 'package:shap_shap/CoreModels/Buttons/create_an_account_button/create_an_account_button.dart';
+import 'package:shap_shap/CoreModels/Buttons/sign_up_google_button/sign_up_google.dart';
 import 'package:shap_shap/CoreModels/input_field_widget/input_field_widget.dart';
 import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
-import 'package:shap_shap/Screens/3.sign_up&in_screens/4.sign_in_sc/log_in_sc.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 
@@ -24,26 +23,20 @@ class _SignUpScState extends State<SignUpSc> {
   // final emailFocus = FocusNode();
   // final passwordFocus = FocusNode();
 
-  @override
-  void initState() {
-    super.initState();
-    // it navigates to the SignIn screen when the user is authenticated
-    //from GetX
-    ever(controller.currentUser, (user) {
-      if (user != null) {
-        Get.offAll(() => LogInSc());
-      }
-    });
-
-    //   [nameFocus, emailFocus, passwordFocus].forEach((focusNode) {
-    //     focusNode.addListener(() {
-    //       if (!focusNode.hasFocus) {
-    //         FocusScope.of(context).unfocus();
-    //       }
-    //     });
-    //   });
-    // }
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   controller.emailController.clear();
+  //   controller.passwordController.clear();
+  //   //   [nameFocus, emailFocus, passwordFocus].forEach((focusNode) {
+  //   //     focusNode.addListener(() {
+  //   //       if (!focusNode.hasFocus) {
+  //   //         FocusScope.of(context).unfocus();
+  //   //       }
+  //   //     });
+  //   //   });
+  //   // }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +86,7 @@ class _SignUpScState extends State<SignUpSc> {
                       SizedBox(height: 25.h),
                       InputFieldWidget(
                         hintText: 'Name',
-                        controller: controller.name,
+                        controller: controller.nameController,
                         backgroundColor: ColorFactory.background,
                         image: ImagesFactory.person,
                         // focusNode: nameFocus,
@@ -101,7 +94,7 @@ class _SignUpScState extends State<SignUpSc> {
                       SizedBox(height: 25.h),
                       InputFieldWidget(
                         hintText: 'Email',
-                        controller: controller.email,
+                        controller: controller.emailController,
                         // focusNode: emailFocus,
                         backgroundColor: ColorFactory.background,
                         image: ImagesFactory.email,
@@ -109,7 +102,7 @@ class _SignUpScState extends State<SignUpSc> {
                       SizedBox(height: 25.h),
                       InputFieldWidget(
                         hintText: 'Password',
-                        controller: controller.password,
+                        controller: controller.passwordController,
                         isPass: true,
                         backgroundColor: ColorFactory.background,
                         image: ImagesFactory.lock,
@@ -129,7 +122,7 @@ class _SignUpScState extends State<SignUpSc> {
                       ),
                       SizedBox(height: 15.h),
                       Container(
-                        padding: EdgeInsets.only(left: 16.0.r),
+                        padding: EdgeInsets.only(left: 10.0.r),
                         child: RichText(
                           text: TextSpan(
                             text: 'Do you have an account? ',
@@ -145,7 +138,7 @@ class _SignUpScState extends State<SignUpSc> {
                                 ),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    Get.toNamed(("/signIn"));
+                                    Get.toNamed(("/login"));
                                   },
                               ),
                             ],

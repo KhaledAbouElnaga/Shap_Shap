@@ -6,9 +6,9 @@ import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_con
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 
-class LogInButton extends StatelessWidget {
+class CreateAccountButton extends StatelessWidget {
   final String buttonName;
-  const LogInButton({super.key, required this.buttonName});
+  const CreateAccountButton({super.key, required this.buttonName});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,20 @@ class LogInButton extends StatelessWidget {
       width: double.infinity,
       height: 55.h,
       child: ElevatedButton(
-        onPressed: () {
-          controller.signIn();
+        onPressed: () async {
+          FocusScope.of(context).unfocus();
+          await controller.signUp();
+          if (controller.errorMessage.isEmpty) {
+            // التسجيل ناجح → نروح Login
+            Get.offAllNamed('/login');
+          } else {
+            // ممكن تعرض رسالة الخطأ للمستخدم
+            Get.snackbar(
+              'خطأ',
+              controller.errorMessage.value,
+              snackPosition: SnackPosition.BOTTOM,
+            );
+          }
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: ColorFactory.background,

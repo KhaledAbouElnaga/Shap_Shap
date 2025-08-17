@@ -7,7 +7,6 @@ class SplashScController extends GetxController {
   final machineName = 'State Machine 1';
   final artboardName = 'c_36 (1)';
   final splashScDuration = Duration(seconds: 3);
-  bool _navigated = false;
 
   void riveOnInit(Artboard artboard) {
     final controller = StateMachineController.fromArtboard(
@@ -22,14 +21,10 @@ class SplashScController extends GetxController {
   }
 
   void navigateToNextScreen() {
-    if (_navigated) {
-      return;
-    } else if (controller.currentUser.value == null) {
-      _navigated = true;
-      Get.offAllNamed('/signIn');
-    } else if (controller.currentUser.value != null) {
-      _navigated = true;
-      Get.offAllNamed('/main_screen');
+    if (controller.firebaseUser.value == null) {
+      Get.offAllNamed('/login');
+    } else {
+      Get.offAllNamed('/categories_sc');
     }
   }
 }

@@ -16,6 +16,7 @@ class CategoriesSc extends StatelessWidget {
             icon: Icon(Icons.login_outlined),
             onPressed: () {
               controller.signOut();
+              Get.offAllNamed('/login');
             },
           ),
         ],

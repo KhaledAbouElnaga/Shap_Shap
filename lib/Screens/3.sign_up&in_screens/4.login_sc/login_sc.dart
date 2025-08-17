@@ -3,23 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:shap_shap/CoreModels/create_an_account_button/create_an_account_button.dart';
-import 'package:shap_shap/CoreModels/loge_in_button/log_in_button.dart';
-import 'package:shap_shap/CoreModels/sign_up_google_button/sign_up_google.dart';
+import 'package:shap_shap/CoreModels/Buttons/loge_in_button/log_in_button.dart';
+import 'package:shap_shap/CoreModels/Buttons/sign_up_google_button/sign_up_google.dart';
 import 'package:shap_shap/CoreModels/input_field_widget/input_field_widget.dart';
 import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 
-class LogInSc extends StatefulWidget {
-  const LogInSc({super.key});
+class LoginSc extends StatefulWidget {
+  const LoginSc({super.key});
 
   @override
-  State<LogInSc> createState() => _LogInScState();
+  State<LoginSc> createState() => _LoginScState();
 }
 
-class _LogInScState extends State<LogInSc> {
+class _LoginScState extends State<LoginSc> {
   final SignUpInController controller = Get.find<SignUpInController>();
+
+  @override
+  void initState() {
+    super.initState();
+    controller.emailController.clear();
+    controller.passwordController.clear();
+  }
   // final nameFocus = FocusNode();
   // final emailFocus = FocusNode();
   // final passwordFocus = FocusNode();
@@ -73,7 +79,7 @@ class _LogInScState extends State<LogInSc> {
 
                       InputFieldWidget(
                         hintText: 'Email',
-                        controller: controller.email,
+                        controller: controller.emailController,
                         // focusNode: emailFocus,
                         backgroundColor: ColorFactory.background,
                         image: ImagesFactory.email,
@@ -81,7 +87,7 @@ class _LogInScState extends State<LogInSc> {
                       SizedBox(height: 25.h),
                       InputFieldWidget(
                         hintText: 'Password',
-                        controller: controller.password,
+                        controller: controller.passwordController,
                         isPass: true,
                         backgroundColor: ColorFactory.background,
                         image: ImagesFactory.lock,
@@ -93,15 +99,15 @@ class _LogInScState extends State<LogInSc> {
                         children: [
                           SizedBox(
                             width: 150.w,
-                            child: LogInButton(buttonName: 'Log In'),
+                            child: LogInButton(buttonName: 'Sign In'),
                           ),
                           SizedBox(width: 10.w),
                           SizedBox(width: 150.w, child: SignUpGoogleButton()),
                         ],
                       ),
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 25.h),
                       Container(
-                        padding: EdgeInsets.only(left: 16.0.r),
+                        padding: EdgeInsets.only(left: 10.0.r),
                         child: RichText(
                           text: TextSpan(
                             text: 'Don\'t you have an account? ',
