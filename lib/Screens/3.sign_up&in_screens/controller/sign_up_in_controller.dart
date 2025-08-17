@@ -11,6 +11,7 @@ class SignUpInController extends GetxController {
   // Reactive loading & error state
   var isLoading = false.obs;
   var errorMessage = ''.obs;
+  var errorCode = ''.obs;
 
   // TextEditingControllers for email & password
   TextEditingController emailController = TextEditingController();
@@ -48,6 +49,7 @@ class SignUpInController extends GetxController {
       passwordController.clear();
     } on FirebaseAuthException catch (e) {
       errorMessage.value = e.message ?? '';
+      errorCode.value = e.code;
     } finally {
       isLoading.value = false;
     }
@@ -64,6 +66,7 @@ class SignUpInController extends GetxController {
       );
     } on FirebaseAuthException catch (e) {
       errorMessage.value = e.message ?? '';
+      errorCode.value = e.code;
     } finally {
       isLoading.value = false;
     }

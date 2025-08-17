@@ -11,4 +11,8 @@ class ColorFactory {
 
   static const Color textSecondary = Color(0xFF595754);
   static const Color textPrimary = Color(0xFF56A25F);
+
+  //SnackBar Colors
+  static const Color snackBarSuccess = Color(0xFF509859);
+  static const Color snackBarError = Color(0xFFbf4545);
 }
