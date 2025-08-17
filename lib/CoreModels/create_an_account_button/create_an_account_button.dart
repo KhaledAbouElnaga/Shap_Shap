@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:shap_shap/Screens/3.sign_up_sc/controller/firebase_controller.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 
@@ -9,11 +11,14 @@ class CreateAccountButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FirebaseController controller = Get.find<FirebaseController>();
     return SizedBox(
       width: double.infinity,
       height: 55.h,
       child: ElevatedButton(
-        onPressed: () async {},
+        onPressed: () {
+          controller.signUp();
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: ColorFactory.background,
           shape: RoundedRectangleBorder(

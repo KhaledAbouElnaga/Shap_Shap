@@ -5,6 +5,9 @@ class SignInSc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(title: Text('Sign In')),
+      body: Center(child: Text('Sign In Form will be displayed here')),
+    );
   }
 }

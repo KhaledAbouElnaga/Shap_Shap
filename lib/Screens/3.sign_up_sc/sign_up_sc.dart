@@ -6,11 +6,32 @@ import 'package:get/get.dart';
 import 'package:shap_shap/CoreModels/create_an_account_button/create_an_account_button.dart';
 import 'package:shap_shap/CoreModels/sign_up_google_button/sign_up_google.dart';
 import 'package:shap_shap/CoreModels/input_field_widget/input_field_widget.dart';
+import 'package:shap_shap/Screens/3.sign_up_sc/controller/firebase_controller.dart';
+import 'package:shap_shap/Screens/4.sign_in_sc/sign_in_sc.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 
-class SignUpSc extends StatelessWidget {
+class SignUpSc extends StatefulWidget {
   const SignUpSc({super.key});
+
+  @override
+  State<SignUpSc> createState() => _SignUpScState();
+}
+
+class _SignUpScState extends State<SignUpSc> {
+  final FirebaseController controller = Get.find<FirebaseController>();
+
+  @override
+  void initState() {
+    super.initState();
+    // it navigates to the SignIn screen when the user is authenticated
+    //from GetX
+    ever(controller.currentUser, (user) {
+      if (user != null) {
+        Get.offAll(() => SignInSc());
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,21 +77,21 @@ class SignUpSc extends StatelessWidget {
                     SizedBox(height: 25.h),
                     InputFieldWidget(
                       hintText: 'Name',
-                      controller: TextEditingController(),
+                      controller: controller.name,
                       backgroundColor: ColorFactory.background,
                       image: ImagesFactory.person,
                     ),
                     SizedBox(height: 25.h),
                     InputFieldWidget(
                       hintText: 'Email',
-                      controller: TextEditingController(),
+                      controller: controller.email,
                       backgroundColor: ColorFactory.background,
                       image: ImagesFactory.email,
                     ),
                     SizedBox(height: 25.h),
                     InputFieldWidget(
                       hintText: 'Password',
-                      controller: TextEditingController(),
+                      controller: controller.password,
                       isPass: true,
                       backgroundColor: ColorFactory.background,
                       image: ImagesFactory.lock,

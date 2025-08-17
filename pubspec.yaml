@@ -19,10 +19,11 @@ dependencies:
   flutter_screenutil: ^5.9.3
   art_sweetalert: ^0.0.5
   flutter_circular_progress_indicator: ^0.0.3
-  firebase_core: ^2.26.0
-  firebase_auth: ^4.6.4   #login
+  firebase_core: ^2.21.0
+  firebase_auth: ^4.8.0   #login
   cloud_firestore: 4.17.5 # firebase
   flutter_svg: ^2.2.0
+  awesome_dialog: ^3.2.1
   
 
 
