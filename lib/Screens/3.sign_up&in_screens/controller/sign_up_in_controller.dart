@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:shap_shap/Screens/3.sign_up&in_screens/4.sign_in_sc/sign_in_sc.dart';
+import 'package:shap_shap/Screens/3.sign_up&in_screens/4.sign_in_sc/log_in_sc.dart';
 import 'package:shap_shap/Screens/5.categories_sc/categories_sc.dart';
 
 class SignUpInController extends GetxController {
@@ -65,9 +65,10 @@ class SignUpInController extends GetxController {
           snackPosition: SnackPosition.BOTTOM,
         );
       });
-
+      //
+      //
       Future.delayed(Duration(seconds: 2), () {
-        Get.offAll(() => SignInSc());
+        Get.offAll(() => LogInSc());
       });
     } on FirebaseAuthException catch (e) {
       String message = '';

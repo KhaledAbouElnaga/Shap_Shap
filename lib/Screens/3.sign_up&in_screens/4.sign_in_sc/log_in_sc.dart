@@ -4,46 +4,25 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:shap_shap/CoreModels/create_an_account_button/create_an_account_button.dart';
+import 'package:shap_shap/CoreModels/loge_in_button/log_in_button.dart';
 import 'package:shap_shap/CoreModels/sign_up_google_button/sign_up_google.dart';
 import 'package:shap_shap/CoreModels/input_field_widget/input_field_widget.dart';
 import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
-import 'package:shap_shap/Screens/3.sign_up&in_screens/4.sign_in_sc/log_in_sc.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 
-class SignUpSc extends StatefulWidget {
-  const SignUpSc({super.key});
+class LogInSc extends StatefulWidget {
+  const LogInSc({super.key});
 
   @override
-  State<SignUpSc> createState() => _SignUpScState();
+  State<LogInSc> createState() => _LogInScState();
 }
 
-class _SignUpScState extends State<SignUpSc> {
+class _LogInScState extends State<LogInSc> {
   final SignUpInController controller = Get.find<SignUpInController>();
   // final nameFocus = FocusNode();
   // final emailFocus = FocusNode();
   // final passwordFocus = FocusNode();
-
-  @override
-  void initState() {
-    super.initState();
-    // it navigates to the SignIn screen when the user is authenticated
-    //from GetX
-    ever(controller.currentUser, (user) {
-      if (user != null) {
-        Get.offAll(() => LogInSc());
-      }
-    });
-
-    //   [nameFocus, emailFocus, passwordFocus].forEach((focusNode) {
-    //     focusNode.addListener(() {
-    //       if (!focusNode.hasFocus) {
-    //         FocusScope.of(context).unfocus();
-    //       }
-    //     });
-    //   });
-    // }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +61,7 @@ class _SignUpScState extends State<SignUpSc> {
                     children: [
                       Center(
                         child: Text(
-                          "Sign Up",
+                          "Log In",
                           style: TextStyle(
                             fontSize: 30.sp,
                             fontWeight: FontWeight.bold,
@@ -91,14 +70,7 @@ class _SignUpScState extends State<SignUpSc> {
                         ),
                       ),
                       SizedBox(height: 25.h),
-                      InputFieldWidget(
-                        hintText: 'Name',
-                        controller: controller.name,
-                        backgroundColor: ColorFactory.background,
-                        image: ImagesFactory.person,
-                        // focusNode: nameFocus,
-                      ),
-                      SizedBox(height: 25.h),
+
                       InputFieldWidget(
                         hintText: 'Email',
                         controller: controller.email,
@@ -117,35 +89,35 @@ class _SignUpScState extends State<SignUpSc> {
                       ),
                       SizedBox(height: 25.h),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Expanded(
-                            child: CreateAccountButton(
-                              buttonName: 'New Account',
-                            ),
+                          SizedBox(
+                            width: 150.w,
+                            child: LogInButton(buttonName: 'Log In'),
                           ),
                           SizedBox(width: 10.w),
-                          Expanded(child: SignUpGoogleButton()),
+                          SizedBox(width: 150.w, child: SignUpGoogleButton()),
                         ],
                       ),
-                      SizedBox(height: 15.h),
+                      SizedBox(height: 20.h),
                       Container(
                         padding: EdgeInsets.only(left: 16.0.r),
                         child: RichText(
                           text: TextSpan(
-                            text: 'Do you have an account? ',
+                            text: 'Don\'t you have an account? ',
                             style: TextStyle(
                               color: ColorFactory.black,
                               fontWeight: FontWeight.w500,
                             ),
                             children: [
                               TextSpan(
-                                text: 'Sign In',
+                                text: 'Sign up',
                                 style: TextStyle(
                                   color: ColorFactory.textPrimary,
                                 ),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    Get.toNamed(("/signIn"));
+                                    Get.toNamed(("/signUp"));
                                   },
                               ),
                             ],

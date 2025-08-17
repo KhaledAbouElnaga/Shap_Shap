@@ -6,9 +6,9 @@ import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_con
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 
-class CreateAccountButton extends StatelessWidget {
+class LogInButton extends StatelessWidget {
   final String buttonName;
-  const CreateAccountButton({super.key, required this.buttonName});
+  const LogInButton({super.key, required this.buttonName});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class CreateAccountButton extends StatelessWidget {
       height: 55.h,
       child: ElevatedButton(
         onPressed: () {
-          controller.signUp();
+          controller.signIn();
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: ColorFactory.background,
