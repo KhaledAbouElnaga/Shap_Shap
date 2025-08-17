@@ -9,6 +9,7 @@ class InputFieldWidget extends StatefulWidget {
   final String? image;
   final TextEditingController controller;
   final bool isPass;
+  final FocusNode? focusNode;
   const InputFieldWidget({
     super.key,
     required this.hintText,
@@ -16,6 +17,7 @@ class InputFieldWidget extends StatefulWidget {
     this.isPass = false,
     required this.backgroundColor,
     this.image,
+    this.focusNode,
   });
 
   @override
@@ -47,6 +49,7 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
           SizedBox(width: 8.w),
           Expanded(
             child: TextField(
+              focusNode: widget.focusNode,
               style: TextStyle(
                 color: ColorFactory.black,
                 fontSize: 16.sp,

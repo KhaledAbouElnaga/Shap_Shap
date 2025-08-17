@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Shap Shap',
+        title: 'Shup Shup',
         theme: ThemeData(scaffoldBackgroundColor: ColorFactory.background),
         initialRoute: '/splash',
         getPages: [

@@ -20,6 +20,9 @@ class SignUpSc extends StatefulWidget {
 
 class _SignUpScState extends State<SignUpSc> {
   final SignUpInController controller = Get.find<SignUpInController>();
+  // final nameFocus = FocusNode();
+  // final emailFocus = FocusNode();
+  // final passwordFocus = FocusNode();
 
   @override
   void initState() {
@@ -31,108 +34,127 @@ class _SignUpScState extends State<SignUpSc> {
         Get.offAll(() => SignInSc());
       }
     });
+
+    //   [nameFocus, emailFocus, passwordFocus].forEach((focusNode) {
+    //     focusNode.addListener(() {
+    //       if (!focusNode.hasFocus) {
+    //         FocusScope.of(context).unfocus();
+    //       }
+    //     });
+    //   });
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: Padding(
-              padding: EdgeInsets.only(top: 30.0.h),
-              child: SvgPicture.asset(ImagesFactory.group),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            top: 340.h,
-            child: Container(
-              padding: EdgeInsets.all(40.r),
-              decoration: BoxDecoration(
-                color: ColorFactory.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(60.r),
-                  topRight: Radius.circular(60.r),
-                ),
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: EdgeInsets.only(top: 30.0.h),
+                child: SvgPicture.asset(ImagesFactory.group),
               ),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          fontSize: 30.sp,
-                          fontWeight: FontWeight.bold,
-                          color: ColorFactory.textPrimary,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 25.h),
-                    InputFieldWidget(
-                      hintText: 'Name',
-                      controller: controller.name,
-                      backgroundColor: ColorFactory.background,
-                      image: ImagesFactory.person,
-                    ),
-                    SizedBox(height: 25.h),
-                    InputFieldWidget(
-                      hintText: 'Email',
-                      controller: controller.email,
-                      backgroundColor: ColorFactory.background,
-                      image: ImagesFactory.email,
-                    ),
-                    SizedBox(height: 25.h),
-                    InputFieldWidget(
-                      hintText: 'Password',
-                      controller: controller.password,
-                      isPass: true,
-                      backgroundColor: ColorFactory.background,
-                      image: ImagesFactory.lock,
-                    ),
-                    SizedBox(height: 25.h),
-                    Row(
-                      children: [
-                        Expanded(child: CreateAccountButton()),
-                        SizedBox(width: 10.w),
-                        Expanded(child: SignUpGoogleButton()),
-                      ],
-                    ),
-                    SizedBox(height: 15.h),
-                    Container(
-                      padding: EdgeInsets.only(left: 16.0.r),
-                      child: RichText(
-                        text: TextSpan(
-                          text: 'Do you have an account? ',
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              top: 340.h,
+              child: Container(
+                padding: EdgeInsets.all(40.r),
+                decoration: BoxDecoration(
+                  color: ColorFactory.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(60.r),
+                    topRight: Radius.circular(60.r),
+                  ),
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Text(
+                          "Sign Up",
                           style: TextStyle(
-                            color: ColorFactory.black,
-                            fontWeight: FontWeight.w500,
+                            fontSize: 30.sp,
+                            fontWeight: FontWeight.bold,
+                            color: ColorFactory.textPrimary,
                           ),
-                          children: [
-                            TextSpan(
-                              text: 'Sign In',
-                              style: TextStyle(color: ColorFactory.textPrimary),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  Get.toNamed(("/signIn"));
-                                },
-                            ),
-                          ],
                         ),
                       ),
-                    ),
-                  ],
+                      SizedBox(height: 25.h),
+                      InputFieldWidget(
+                        hintText: 'Name',
+                        controller: controller.name,
+                        backgroundColor: ColorFactory.background,
+                        image: ImagesFactory.person,
+                        // focusNode: nameFocus,
+                      ),
+                      SizedBox(height: 25.h),
+                      InputFieldWidget(
+                        hintText: 'Email',
+                        controller: controller.email,
+                        // focusNode: emailFocus,
+                        backgroundColor: ColorFactory.background,
+                        image: ImagesFactory.email,
+                      ),
+                      SizedBox(height: 25.h),
+                      InputFieldWidget(
+                        hintText: 'Password',
+                        controller: controller.password,
+                        isPass: true,
+                        backgroundColor: ColorFactory.background,
+                        image: ImagesFactory.lock,
+                        // focusNode: passwordFocus,
+                      ),
+                      SizedBox(height: 25.h),
+                      Row(
+                        children: [
+                          Expanded(child: CreateAccountButton()),
+                          SizedBox(width: 10.w),
+                          Expanded(child: SignUpGoogleButton()),
+                        ],
+                      ),
+                      SizedBox(height: 15.h),
+                      Container(
+                        padding: EdgeInsets.only(left: 16.0.r),
+                        child: RichText(
+                          text: TextSpan(
+                            text: 'Do you have an account? ',
+                            style: TextStyle(
+                              color: ColorFactory.black,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: 'Sign In',
+                                style: TextStyle(
+                                  color: ColorFactory.textPrimary,
+                                ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Get.toNamed(("/signIn"));
+                                  },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
