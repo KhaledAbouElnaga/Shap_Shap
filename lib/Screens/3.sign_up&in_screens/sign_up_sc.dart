@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 import 'package:shap_shap/CoreModels/create_an_account_button/create_an_account_button.dart';
 import 'package:shap_shap/CoreModels/sign_up_google_button/sign_up_google.dart';
 import 'package:shap_shap/CoreModels/input_field_widget/input_field_widget.dart';
-import 'package:shap_shap/Screens/3.sign_up_sc/controller/firebase_controller.dart';
-import 'package:shap_shap/Screens/4.sign_in_sc/sign_in_sc.dart';
+import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
+import 'package:shap_shap/Screens/3.sign_up&in_screens/4.sign_in_sc/sign_in_sc.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 
@@ -19,7 +19,7 @@ class SignUpSc extends StatefulWidget {
 }
 
 class _SignUpScState extends State<SignUpSc> {
-  final FirebaseController controller = Get.find<FirebaseController>();
+  final SignUpInController controller = Get.find<SignUpInController>();
 
   @override
   void initState() {

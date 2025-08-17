@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:shap_shap/Screens/3.sign_up_sc/controller/firebase_controller.dart';
-import 'package:shap_shap/Screens/3.sign_up_sc/sign_up_sc.dart';
-import 'package:shap_shap/Screens/4.sign_in_sc/sign_in_sc.dart';
-import 'package:shap_shap/Screens/5.categories_main_sc/main_sc.dart';
+import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
+import 'package:shap_shap/Screens/3.sign_up&in_screens/sign_up_sc.dart';
+import 'package:shap_shap/Screens/3.sign_up&in_screens/4.sign_in_sc/sign_in_sc.dart';
+import 'package:shap_shap/Screens/5.categories_sc/categories_sc.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'firebase_options.dart';
 import 'Screens/1.splash_sc/controller/splash_sc_controller.dart';
@@ -16,7 +16,7 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   Get.lazyPut(() => SplashScController(), fenix: true);
-  Get.put(FirebaseController());
+  Get.put(SignUpInController());
 
   runApp(const MyApp());
 }
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           GetPage(name: '/splash', page: () => const SplashScreen()),
           GetPage(name: '/signUp', page: () => const SignUpSc()),
           GetPage(name: '/signIn', page: () => const SignInSc()),
-          GetPage(name: '/main_screen', page: () => const MainSc()),
+          GetPage(name: '/categories_sc', page: () => const CategoriesSc()),
         ],
       ),
     );

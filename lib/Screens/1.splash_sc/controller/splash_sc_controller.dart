@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import 'package:rive/rive.dart';
-import 'package:shap_shap/Screens/3.sign_up_sc/controller/firebase_controller.dart';
+import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
 
 class SplashScController extends GetxController {
-  final FirebaseController firebaseController = Get.find<FirebaseController>();
+  final SignUpInController controller = Get.find<SignUpInController>();
   final machineName = 'State Machine 1';
   final artboardName = 'c_36 (1)';
   final splashScDuration = Duration(seconds: 3);
@@ -24,10 +24,10 @@ class SplashScController extends GetxController {
   void navigateToNextScreen() {
     if (_navigated) {
       return;
-    } else if (firebaseController.currentUser.value == null) {
+    } else if (controller.currentUser.value == null) {
       _navigated = true;
-      Get.offAllNamed('/signUp');
-    } else if (firebaseController.currentUser.value != null) {
+      Get.offAllNamed('/signIn');
+    } else if (controller.currentUser.value != null) {
       _navigated = true;
       Get.offAllNamed('/main_screen');
     }

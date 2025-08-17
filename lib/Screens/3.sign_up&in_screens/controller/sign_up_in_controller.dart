@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:shap_shap/Screens/4.sign_in_sc/sign_in_sc.dart';
-import 'package:shap_shap/Screens/5.categories_main_sc/main_sc.dart';
+import 'package:shap_shap/Screens/3.sign_up&in_screens/4.sign_in_sc/sign_in_sc.dart';
+import 'package:shap_shap/Screens/5.categories_sc/categories_sc.dart';
 
-class FirebaseController extends GetxController {
+class SignUpInController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   final TextEditingController email = TextEditingController();
@@ -115,7 +115,7 @@ class FirebaseController extends GetxController {
         email: email.text,
         password: password.text,
       );
-      Get.offAll(() => MainSc());
+      Get.offAll(() => CategoriesSc());
       Get.snackbar(
         "Sign In Successful",
         "Welcome back!",
