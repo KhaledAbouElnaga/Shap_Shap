@@ -1,11 +1,12 @@
 import 'package:get/get.dart';
 import 'package:rive/rive.dart';
+import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
 
 class SplashScController extends GetxController {
+  final SignUpInController controller = Get.find<SignUpInController>();
   final machineName = 'State Machine 1';
   final artboardName = 'c_36 (1)';
   final splashScDuration = Duration(seconds: 3);
-  bool _navigated = false;
 
   void riveOnInit(Artboard artboard) {
     final controller = StateMachineController.fromArtboard(
@@ -20,11 +21,10 @@ class SplashScController extends GetxController {
   }
 
   void navigateToNextScreen() {
-    if (_navigated) {
-      return;
+    if (controller.firebaseUser.value == null) {
+      Get.offAllNamed('/login');
     } else {
-      _navigated = true;
-      Get.offAllNamed('/signUp');
+      Get.offAllNamed('/categories_sc');
     }
   }
 }

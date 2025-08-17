@@ -21,11 +21,11 @@ class SplashScreen extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(top: 150.0.r),
                 child: Text(
-                  "Welcome to Shap Shap",
+                  "Welcome to Shup Shup",
                   style: TextStyle(
                     fontSize: 30.sp,
                     fontWeight: FontWeight.bold,
-                    color: ColorFactory.secondaryColor,
+                    color: ColorFactory.textPrimary,
                     fontStyle: FontStyle.italic,
                   ),
                   textAlign: TextAlign.center,
