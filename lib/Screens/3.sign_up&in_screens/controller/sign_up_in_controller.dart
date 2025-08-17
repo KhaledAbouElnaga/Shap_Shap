@@ -17,13 +17,13 @@ class SignUpInController extends GetxController {
   TextEditingController passwordController = TextEditingController();
   TextEditingController nameController = TextEditingController();
 
-  // Check if user is logged in
+  // to read if the user is logged in or not( to use in if methods )
   bool get isLoggedIn => firebaseUser.value != null;
 
   @override
   void onInit() {
     super.onInit();
-    // Bind the firebase auth state to our reactive user
+    // a method to follows the user state if changes (loged in or not)
     firebaseUser.bindStream(_auth.authStateChanges());
   }
 
@@ -47,7 +47,7 @@ class SignUpInController extends GetxController {
       emailController.clear();
       passwordController.clear();
     } on FirebaseAuthException catch (e) {
-      errorMessage.value = e.message ?? 'حدث خطأ غير معروف';
+      errorMessage.value = e.message ?? '';
     } finally {
       isLoading.value = false;
     }
@@ -63,7 +63,7 @@ class SignUpInController extends GetxController {
         password: passwordController.text.trim(),
       );
     } on FirebaseAuthException catch (e) {
-      errorMessage.value = e.message ?? 'حدث خطأ غير معروف';
+      errorMessage.value = e.message ?? '';
     } finally {
       isLoading.value = false;
     }
