@@ -123,6 +123,8 @@ class _LoginScState extends State<LoginSc> {
                                 ),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
+                                    controller.emailController.clear();
+                                    controller.passwordController.clear();
                                     Get.toNamed(("/signUp"));
                                   },
                               ),

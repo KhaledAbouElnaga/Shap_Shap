@@ -22,7 +22,7 @@ class CreateAccountButton extends StatelessWidget {
           FocusScope.of(context).unfocus();
           await controller.signUp();
           // ignore: unrelated_type_equality_checks
-          if (controller.errorCode == 'weak-password') {
+          if (controller.errorCode.value == 'weak-password') {
             SnackBarModel.show(
               title: "Error⚠️",
               message: "Password is too weak",
@@ -30,7 +30,7 @@ class CreateAccountButton extends StatelessWidget {
               duration: const Duration(seconds: 4),
             );
             // ignore: unrelated_type_equality_checks
-          } else if (controller.errorCode == 'email-already-in-use') {
+          } else if (controller.errorCode.value == 'email-already-in-use') {
             SnackBarModel.show(
               title: "Error⚠️",
               message: "Email is already in use",
