@@ -7,7 +7,7 @@ class CategoriesSc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SignUpInController controller = Get.find();
+    final controller = Get.find<SignUpInController>();
     return Scaffold(
       appBar: AppBar(
         title: Text('Categories'),
@@ -17,6 +17,7 @@ class CategoriesSc extends StatelessWidget {
             onPressed: () {
               controller.signOut();
               Get.offAllNamed('/login');
+              controller.signOutWithGoogle();
             },
           ),
         ],

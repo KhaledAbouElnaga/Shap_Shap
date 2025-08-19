@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:shap_shap/CoreModels/SnackBar/snack_bar_model.dart';
 import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
@@ -20,16 +21,30 @@ class CreateAccountButton extends StatelessWidget {
         onPressed: () async {
           FocusScope.of(context).unfocus();
           await controller.signUp();
-          if (controller.errorMessage.isEmpty) {
-            // التسجيل ناجح → نروح Login
-            Get.offAllNamed('/login');
-          } else {
-            // ممكن تعرض رسالة الخطأ للمستخدم
-            Get.snackbar(
-              'خطأ',
-              controller.errorMessage.value,
-              snackPosition: SnackPosition.BOTTOM,
+          // ignore: unrelated_type_equality_checks
+          if (controller.errorCode.value == 'weak-password') {
+            SnackBarModel.show(
+              title: "Error⚠️",
+              message: "Password is too weak",
+              type: SnackType.error,
+              duration: const Duration(seconds: 4),
             );
+            // ignore: unrelated_type_equality_checks
+          } else if (controller.errorCode.value == 'email-already-in-use') {
+            SnackBarModel.show(
+              title: "Error⚠️",
+              message: "Email is already in use",
+              type: SnackType.error,
+              duration: const Duration(seconds: 4),
+            );
+          } else if (controller.errorCode.isEmpty) {
+            SnackBarModel.show(
+              title: "Success✅",
+              message: "Account created successfully!",
+              type: SnackType.success,
+              duration: const Duration(seconds: 2),
+            );
+            Get.offAllNamed("/login");
           }
         },
         style: ElevatedButton.styleFrom(

@@ -80,6 +80,7 @@ class _LoginScState extends State<LoginSc> {
                       InputFieldWidget(
                         hintText: 'Email',
                         controller: controller.emailController,
+                        textInputType: TextInputType.emailAddress,
                         // focusNode: emailFocus,
                         backgroundColor: ColorFactory.background,
                         image: ImagesFactory.email,
@@ -88,6 +89,7 @@ class _LoginScState extends State<LoginSc> {
                       InputFieldWidget(
                         hintText: 'Password',
                         controller: controller.passwordController,
+                        textInputType: TextInputType.visiblePassword,
                         isPass: true,
                         backgroundColor: ColorFactory.background,
                         image: ImagesFactory.lock,
@@ -123,6 +125,8 @@ class _LoginScState extends State<LoginSc> {
                                 ),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
+                                    controller.emailController.clear();
+                                    controller.passwordController.clear();
                                     Get.toNamed(("/signUp"));
                                   },
                               ),

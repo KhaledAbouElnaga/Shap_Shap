@@ -86,6 +86,7 @@ class _SignUpScState extends State<SignUpSc> {
                       SizedBox(height: 25.h),
                       InputFieldWidget(
                         hintText: 'Name',
+                        textInputType: TextInputType.name,
                         controller: controller.nameController,
                         backgroundColor: ColorFactory.background,
                         image: ImagesFactory.person,
@@ -95,6 +96,7 @@ class _SignUpScState extends State<SignUpSc> {
                       InputFieldWidget(
                         hintText: 'Email',
                         controller: controller.emailController,
+                        textInputType: TextInputType.emailAddress,
                         // focusNode: emailFocus,
                         backgroundColor: ColorFactory.background,
                         image: ImagesFactory.email,
@@ -103,6 +105,7 @@ class _SignUpScState extends State<SignUpSc> {
                       InputFieldWidget(
                         hintText: 'Password',
                         controller: controller.passwordController,
+                        textInputType: TextInputType.visiblePassword,
                         isPass: true,
                         backgroundColor: ColorFactory.background,
                         image: ImagesFactory.lock,
@@ -138,6 +141,9 @@ class _SignUpScState extends State<SignUpSc> {
                                 ),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
+                                    controller.emailController.clear();
+                                    controller.passwordController.clear();
+                                    controller.nameController.clear();
                                     Get.toNamed(("/login"));
                                   },
                               ),
