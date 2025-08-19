@@ -95,7 +95,21 @@ class _LoginScState extends State<LoginSc> {
                         image: ImagesFactory.lock,
                         // focusNode: passwordFocus,
                       ),
-                      SizedBox(height: 25.h),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: TextButton(
+                          onPressed: () {
+                            controller.emailController.clear();
+                            controller.passwordController.clear();
+                            Get.toNamed(("/forgot_password_sc"));
+                          },
+                          child: Text(
+                            "Forget Password?",
+                            style: TextStyle(color: ColorFactory.textSecondary),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 8.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
