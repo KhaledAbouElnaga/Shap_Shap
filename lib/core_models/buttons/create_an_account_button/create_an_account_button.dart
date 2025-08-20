@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:shap_shap/CoreModels/SnackBar/snack_bar_model.dart';
 import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
-import 'package:shap_shap/Screens/7.categories_sc/categories_sc.dart';
+import 'package:shap_shap/core_models/snack_bar/snack_bar_model.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 
-class LogInButton extends StatelessWidget {
+class CreateAccountButton extends StatelessWidget {
   final String buttonName;
-  const LogInButton({super.key, required this.buttonName});
+  const CreateAccountButton({super.key, required this.buttonName});
 
   @override
   Widget build(BuildContext context) {
@@ -21,44 +20,31 @@ class LogInButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () async {
           FocusScope.of(context).unfocus();
-          controller.errorCode.value = '';
-          controller.errorMessage.value = '';
-          await controller.signIn();
-          if (controller.errorCode.value.isNotEmpty) {
-            String message;
-            switch (controller.errorCode.value) {
-              case 'user-not-found':
-                message = "No user found for this Email.";
-                break;
-              case 'wrong-password':
-                message = "The password is incorrect. Please try again.";
-                break;
-              case 'invalid-email':
-                message = "The email address is not valid.";
-                break;
-              case 'user-disabled':
-                message = "This user account has been disabled.";
-                break;
-              case 'too-many-requests':
-                message = "Too many attempts. Please try again later.";
-                break;
-              default:
-                message = "Something went wrong. Please try again.";
-            }
+          await controller.signUp();
+          // ignore: unrelated_type_equality_checks
+          if (controller.errorCode.value == 'weak-password') {
             SnackBarModel.show(
               title: "Error⚠️",
-              message: message,
+              message: "Password is too weak",
               type: SnackType.error,
               duration: const Duration(seconds: 4),
             );
-          } else {
+            // ignore: unrelated_type_equality_checks
+          } else if (controller.errorCode.value == 'email-already-in-use') {
+            SnackBarModel.show(
+              title: "Error⚠️",
+              message: "Email is already in use",
+              type: SnackType.error,
+              duration: const Duration(seconds: 4),
+            );
+          } else if (controller.errorCode.isEmpty) {
             SnackBarModel.show(
               title: "Success✅",
-              message: "Logged in successfully!",
+              message: "Account created successfully!",
               type: SnackType.success,
               duration: const Duration(seconds: 2),
             );
-            Get.offAll(() => const CategoriesSc());
+            Get.offAllNamed("/login");
           }
         },
         style: ElevatedButton.styleFrom(

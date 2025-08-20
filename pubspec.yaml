@@ -44,6 +44,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/new_images/
     - assets/images/sign_up.svg
     - assets/images/google.svg
     - assets/images/account.svg
