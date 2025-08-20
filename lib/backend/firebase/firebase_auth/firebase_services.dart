@@ -1,10 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseServices extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn googleSignIn = GoogleSignIn.instance;
 
   Future<UserCredential> signUp(String email, String password) {
     return _auth.createUserWithEmailAndPassword(

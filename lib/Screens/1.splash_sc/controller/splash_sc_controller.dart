@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:rive/rive.dart';
-import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
+import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
 
 class SplashScController extends GetxController {
   final SignUpInController controller = Get.find<SignUpInController>();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart' hide Image;
-import 'package:shap_shap/Screens/1.splash_sc/controller/splash_sc_controller.dart';
+import 'package:shap_shap/screens/1.splash_sc/controller/splash_sc_controller.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 import 'package:get/get.dart';
