@@ -10,4 +10,6 @@ class ImagesFactory {
   static const String email = 'assets/images/email.svg';
   static const String lock = 'assets/images/password.svg';
   static const String forgotPassword = 'assets/images/forgot_password.svg';
+  static const String farmer = 'assets/images/farmer.svg';
+  static const String newFarmer = 'assets/images/farmer2.svg';
 }

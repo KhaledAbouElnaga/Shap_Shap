@@ -5,6 +5,7 @@ import 'package:shap_shap/Screens/3.sign_up&in_screens/6.forgot_password_sc/forg
 import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
 import 'package:shap_shap/Screens/3.sign_up&in_screens/5.sign_up_sc/sign_up_sc.dart';
 import 'package:shap_shap/Screens/3.sign_up&in_screens/4.login_sc/login_sc.dart';
+import 'package:shap_shap/testing.dart';
 import 'package:shap_shap/Screens/7.categories_sc/categories_sc.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'firebase_options.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Shup Shup',
         theme: ThemeData(scaffoldBackgroundColor: ColorFactory.background),
-        initialRoute: '/splash',
+        initialRoute: '/categories_sc',
         getPages: [
           GetPage(name: '/splash', page: () => const SplashScreen()),
           GetPage(name: '/signUp', page: () => const SignUpSc()),
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
             name: '/forgot_password_sc',
             page: () => const ForgotPasswordSc(),
           ),
+          GetPage(name: '/testing', page: () => const Testing()),
         ],
       ),
     );
