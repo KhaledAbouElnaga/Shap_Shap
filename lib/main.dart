@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
-import 'package:shap_shap/Screens/3.sign_up&in_screens/sign_up_sc.dart';
-import 'package:shap_shap/Screens/3.sign_up&in_screens/4.login_sc/login_sc.dart';
-import 'package:shap_shap/Screens/5.categories_sc/categories_sc.dart';
+import 'package:shap_shap/screens/3.sign_up&in_screens/6.forgot_password_sc/forgot_password_sc.dart';
+import 'package:shap_shap/screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
+import 'package:shap_shap/screens/3.sign_up&in_screens/5.sign_up_sc/sign_up_sc.dart';
+import 'package:shap_shap/screens/3.sign_up&in_screens/4.login_sc/login_sc.dart';
+import 'package:shap_shap/testing.dart';
+import 'package:shap_shap/screens/7.main_products_sc/main_products_sc.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'firebase_options.dart';
-import 'Screens/1.splash_sc/controller/splash_sc_controller.dart';
-import 'Screens/1.splash_sc/splash_sc.dart';
+import 'screens/1.splash_sc/controller/splash_sc_controller.dart';
+import 'screens/1.splash_sc/splash_sc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
@@ -37,12 +39,20 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Shup Shup',
         theme: ThemeData(scaffoldBackgroundColor: ColorFactory.background),
-        initialRoute: '/splash',
+        initialRoute: '/categories_sc',
         getPages: [
           GetPage(name: '/splash', page: () => const SplashScreen()),
           GetPage(name: '/signUp', page: () => const SignUpSc()),
           GetPage(name: '/login', page: () => const LoginSc()),
-          GetPage(name: '/categories_sc', page: () => const CategoriesSc()),
+          GetPage(
+            name: '/main_products_sc',
+            page: () => const MainProductsSc(),
+          ),
+          GetPage(
+            name: '/forgot_password_sc',
+            page: () => const ForgotPasswordSc(),
+          ),
+          GetPage(name: '/testing', page: () => const Testing()),
         ],
       ),
     );

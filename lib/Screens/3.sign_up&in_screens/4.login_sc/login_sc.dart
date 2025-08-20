@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:shap_shap/CoreModels/Buttons/loge_in_button/log_in_button.dart';
-import 'package:shap_shap/CoreModels/Buttons/sign_up_google_button/sign_up_google.dart';
-import 'package:shap_shap/CoreModels/input_field_widget/input_field_widget.dart';
 import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
+import 'package:shap_shap/core_models/buttons/loge_in_button/log_in_button.dart';
+import 'package:shap_shap/core_models/buttons/sign_up_google_button/sign_up_google.dart';
+import 'package:shap_shap/core_models/input_field_widget/input_field_widget.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 
@@ -95,7 +95,21 @@ class _LoginScState extends State<LoginSc> {
                         image: ImagesFactory.lock,
                         // focusNode: passwordFocus,
                       ),
-                      SizedBox(height: 25.h),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: TextButton(
+                          onPressed: () {
+                            controller.emailController.clear();
+                            controller.passwordController.clear();
+                            Get.toNamed(("/forgot_password_sc"));
+                          },
+                          child: Text(
+                            "Forget Password?",
+                            style: TextStyle(color: ColorFactory.textSecondary),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 8.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

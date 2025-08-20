@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:shap_shap/CoreModels/SnackBar/snack_bar_model.dart';
 import 'package:shap_shap/Screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
-import 'package:shap_shap/Screens/5.categories_sc/categories_sc.dart';
+import 'package:shap_shap/core_models/snack_bar/snack_bar_model.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
+import 'package:shap_shap/screens/7.main_products_sc/main_products_sc.dart';
 
 class SignUpGoogleButton extends StatelessWidget {
   const SignUpGoogleButton({super.key});
@@ -27,7 +27,7 @@ class SignUpGoogleButton extends StatelessWidget {
               type: SnackType.success,
               duration: const Duration(seconds: 2),
             );
-            Get.offAll(() => const CategoriesSc());
+            Get.offAll(() => const MainProductsSc());
           } catch (e) {
             SnackBarModel.show(
               title: "Error⚠️",
