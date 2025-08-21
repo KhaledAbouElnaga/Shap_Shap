@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:shap_shap/Screens/3.sign_up&in_screens/4.login_sc/login_sc.dart';
 import 'package:shap_shap/core_models/snack_bar/snack_bar_model.dart';
 import 'package:shap_shap/factory/color_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
+import 'package:shap_shap/screens/3.sign_up_in_screens/4.login_sc/login_sc.dart';
 
 class ResetPasswordButton extends StatelessWidget {
   final String buttonName;
@@ -44,7 +44,7 @@ class ResetPasswordButton extends StatelessWidget {
               type: SnackType.success,
               duration: const Duration(seconds: 2),
             );
-            Get.offAll(() => const LoginSc());
+            Get.offAll(() => LoginSc());
           } catch (e) {
             SnackBarModel.show(
               title: "Error❌",

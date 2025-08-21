@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:shap_shap/screens/3.sign_up&in_screens/6.forgot_password_sc/forgot_password_sc.dart';
-import 'package:shap_shap/screens/3.sign_up&in_screens/controller/sign_up_in_controller.dart';
-import 'package:shap_shap/screens/3.sign_up&in_screens/5.sign_up_sc/sign_up_sc.dart';
-import 'package:shap_shap/screens/3.sign_up&in_screens/4.login_sc/login_sc.dart';
+import 'package:shap_shap/backend/firebase/firebase_storage/firebase_storage_controller.dart';
+import 'package:shap_shap/screens/3.sign_up_in_screens/6.forgot_password_sc/forgot_password_sc.dart';
+import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
+import 'package:shap_shap/screens/3.sign_up_in_screens/5.sign_up_sc/sign_up_sc.dart';
+import 'package:shap_shap/screens/3.sign_up_in_screens/4.login_sc/login_sc.dart';
 import 'package:shap_shap/testing.dart';
 import 'package:shap_shap/screens/7.main_products_sc/main_products_sc.dart';
 import 'package:shap_shap/factory/color_factory.dart';
@@ -19,6 +20,7 @@ void main() async {
 
   Get.lazyPut(() => SplashScController(), fenix: true);
   Get.put(SignUpInController());
+  Get.put(FirebaseStorageController());
 
   runApp(const MyApp());
 }
@@ -39,20 +41,21 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Shup Shup',
         theme: ThemeData(scaffoldBackgroundColor: ColorFactory.background),
-        initialRoute: '/categories_sc',
+        initialRoute: '/main_products_sc',
         getPages: [
           GetPage(name: '/splash', page: () => const SplashScreen()),
           GetPage(name: '/signUp', page: () => const SignUpSc()),
           GetPage(name: '/login', page: () => const LoginSc()),
           GetPage(
-            name: '/main_products_sc',
-            page: () => const MainProductsSc(),
-          ),
-          GetPage(
             name: '/forgot_password_sc',
             page: () => const ForgotPasswordSc(),
           ),
-          GetPage(name: '/testing', page: () => const Testing()),
+          GetPage(
+            name: '/main_products_sc',
+            page: () => const MainProductsSc(),
+          ),
+
+          GetPage(name: '/testing', page: () => Testing()),
         ],
       ),
     );

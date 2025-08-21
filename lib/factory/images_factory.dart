@@ -12,6 +12,7 @@ class ImagesFactory {
   static const String forgotPassword = 'assets/images/forgot_password.svg';
   static const String farmer = 'assets/images/farmer.svg';
   static const String newFarmer = 'assets/images/farmer2.svg';
+  static const String notFound = 'assets/images/notFound.png';
 
   // new_images in images_factory.dart
   static const String newImage1 = 'assets/images/new_images/bakery.png';
