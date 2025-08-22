@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shap_shap/core_models/custom_search_bar/custom_search_bar.dart';
 import 'package:shap_shap/factory/color_factory.dart';
-import 'package:shap_shap/screens/7.main_products_sc/model/categories_view.dart';
+import 'package:shap_shap/screens/7.main_products_sc/model/categories/categories_view.dart';
+import 'package:shap_shap/screens/7.main_products_sc/model/items/items_view.dart';
 
 class MainProductsSc extends StatelessWidget {
   const MainProductsSc({super.key});
@@ -39,6 +40,7 @@ class MainProductsSc extends StatelessWidget {
                             color: ColorFactory.textPrimary,
                             borderRadius: BorderRadius.circular(50.r),
                           ),
+                          //Favorite Icon Button
                           child: IconButton(
                             onPressed: () {},
                             icon: Icon(
@@ -52,8 +54,6 @@ class MainProductsSc extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 15.h),
-                  // SvgPicture.asset(ImagesFactory.farmer, fit: BoxFit.cover),
-                  // SizedBox(height: 10.h),
                   Padding(
                     padding: EdgeInsets.all(15.0.r),
                     child: Row(
@@ -73,7 +73,7 @@ class MainProductsSc extends StatelessWidget {
                         Align(
                           alignment: Alignment.topRight,
                           child: GestureDetector(
-                            // WILL BE ADDED LATER
+                            // To see all categories
                             onTap: () => {},
                             child: Text(
                               "View all",
@@ -91,6 +91,8 @@ class MainProductsSc extends StatelessWidget {
                   ),
                   SizedBox(height: 5.h),
                   Expanded(child: CategoriesView()),
+                  SizedBox(height: 25.h),
+                  ItemsView(),
                 ],
               ),
             ),

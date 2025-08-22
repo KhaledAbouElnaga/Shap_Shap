@@ -96,7 +96,7 @@ class SignUpInController extends GetxController {
     try {
       await _initGoogleSignIn();
 
-      final GoogleSignInAccount? googleUser = await googleSignIn.authenticate();
+      final GoogleSignInAccount googleUser = await googleSignIn.authenticate();
       if (googleUser == null) {
         throw FirebaseAuthException(
           code: 'ERROR_ABORTED_BY_USER',
