@@ -17,6 +17,7 @@ class FirebaseStorageController extends GetxController {
   void onInit() {
     super.onInit();
     getAllCategoies();
+    getAllItems();
   }
 
   void getAllCategoies() {
@@ -40,33 +41,65 @@ class FirebaseStorageController extends GetxController {
   void getAllItems() async {
     try {
       isLoading.value = true;
-      allItemsList.clear();
-      firestore.collection("categories").snapshots().listen((
-        categoriesSnapshot,
-      ) async {
-        List<Map<String, dynamic>> collectList = [];
-        for (var categoryDoc in categoriesSnapshot.docs) {
-          //  itemsهنا إحنا بنمسك المتغير اللي إسمه كاتيدوري ب الكتغير الجديد اللي تم إنشائه ب .ماب اللي اسمه
-          //id وبعد كدا بقوله ضيفلي كل البيانات في الليست بتاعتي لكن زود عليها حاجه بسيطه هي ال
-          categoryDoc.reference.collection("items").snapshots().listen((items) {
-            collectList.addAll(
-              items.docs.map(
-                (itemsDoc) => {
-                  "id": itemsDoc.id,
-                  "categoryId": categoryDoc.id,
-                  ...itemsDoc.data(),
-                },
-              ),
-            );
-            //.assignAll = renewing the whole data/ updated all the time
-            allItemsList.assignAll(collectList);
-            isLoading.value = false;
-          });
-        }
-      });
+      //Because "items" repeated in every doc in the main categories,
+      // we could make a loop to bring them all.
+      firestore
+          .collectionGroup("items")
+          .snapshots()
+          .listen(
+            (itemsSnapshot) {
+              allItemsList.assignAll(
+                itemsSnapshot.docs.map((itemDoc) {
+                  final categoryId = itemDoc.reference.parent.parent?.id ?? '';
+                  return {
+                    "id": itemDoc.id,
+                    "categoryId": categoryId,
+                    ...itemDoc.data(),
+                  };
+                }).toList(),
+              );
+              isLoading.value = false;
+            },
+            onError: (error) {
+              print("Error fetching items in realtime: $error");
+              isLoading.value = false;
+            },
+          );
     } catch (e) {
-      print("Error fetching items in realtime: $e");
+      print("Error setting up items listener: $e");
       isLoading.value = false;
     }
+    // try {
+    //   isLoading.value = true;
+    //   allItemsList.clear();
+    //   firestore.collection("categories").snapshots().listen((
+    //     categoriesSnapshot,
+    //   ) async {
+    //     List<Map<String, dynamic>> collectList = [];
+    //     for (var categoryDoc in categoriesSnapshot.docs) {
+    //       //  itemsهنا إحنا بنمسك المتغير اللي إسمه كاتيدوري ب الكتغير الجديد اللي تم إنشائه ب .ماب اللي اسمه
+    //       //id وبعد كدا بقوله ضيفلي كل البيانات في الليست بتاعتي لكن زود عليها حاجه بسيطه هي ال
+    //       categoryDoc.reference.collection("items").snapshots().listen((items) {
+    //         collectList.addAll(
+    //           items.docs
+    //               .map(
+    //                 (itemsDoc) => {
+    //                   "id": itemsDoc.id,
+    //                   "categoryId": categoryDoc.id,
+    //                   ...itemsDoc.data(),
+    //                 },
+    //               )
+    //               .toList(),
+    //         );
+    //         //.assignAll = renewing the whole data/ updated all the time
+    //         allItemsList.assignAll(collectList);
+    //         isLoading.value = false;
+    //       });
+    //     }
+    //   });
+    // } catch (e) {
+    //   print("Error fetching items in realtime: $e");
+    //   isLoading.value = false;
+    // }
   }
 }
