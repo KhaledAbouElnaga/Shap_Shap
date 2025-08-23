@@ -11,6 +11,7 @@ class MainProductsSc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.white,
       body: SafeArea(
         child: Stack(
           children: [
@@ -24,11 +25,11 @@ class MainProductsSc extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 40.sp,
                       fontWeight: FontWeight.bold,
-                      color: ColorFactory.textPrimary,
+                      color: ColorsFactory.primary,
                       fontStyle: FontStyle.italic,
                     ),
                   ),
-                  SizedBox(height: 25),
+                  SizedBox(height: 25.h),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5.0.r),
                     child: Row(
@@ -37,7 +38,7 @@ class MainProductsSc extends StatelessWidget {
                         SizedBox(width: 10.w),
                         Container(
                           decoration: BoxDecoration(
-                            color: ColorFactory.textPrimary,
+                            color: ColorsFactory.primary,
                             borderRadius: BorderRadius.circular(50.r),
                           ),
                           //Favorite Icon Button
@@ -46,7 +47,7 @@ class MainProductsSc extends StatelessWidget {
                             icon: Icon(
                               Icons.favorite_border,
                               size: 35.sp,
-                              color: ColorFactory.white,
+                              color: ColorsFactory.white,
                             ),
                           ),
                         ),
@@ -64,7 +65,7 @@ class MainProductsSc extends StatelessWidget {
                           child: Text(
                             "Categories",
                             style: TextStyle(
-                              color: ColorFactory.textSecondary,
+                              color: ColorsFactory.textPrimery,
                               fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
                             ),
@@ -79,7 +80,7 @@ class MainProductsSc extends StatelessWidget {
                               "View all",
                               style: TextStyle(
                                 decoration: TextDecoration.underline,
-                                color: ColorFactory.textSecondary,
+                                color: ColorsFactory.textPrimery,
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.bold,
                               ),

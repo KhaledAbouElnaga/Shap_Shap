@@ -54,7 +54,7 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
               focusNode: widget.focusNode,
               keyboardType: widget.textInputType,
               style: TextStyle(
-                color: ColorFactory.black,
+                color: ColorsFactory.black,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
               ),
@@ -78,7 +78,7 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
               },
               icon: Icon(
                 _obsecure ? Icons.visibility_off : Icons.visibility,
-                color: ColorFactory.black,
+                color: ColorsFactory.black,
               ),
             ),
         ],

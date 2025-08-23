@@ -24,7 +24,7 @@ class CategoriesModel extends StatelessWidget {
     return Column(
       children: [
         Card(
-          color: ColorFactory.light,
+          color: ColorsFactory.light,
           elevation: 5,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50.r),
@@ -38,7 +38,7 @@ class CategoriesModel extends StatelessWidget {
                 imageUrl: image,
                 cacheManager: cacheManager,
                 placeholder: (context, url) =>
-                    CircularProgressIndicator(color: ColorFactory.textPrimary),
+                    CircularProgressIndicator(color: ColorsFactory.primary),
                 errorWidget: (context, url, error) => Icon(Icons.error),
                 fit: BoxFit.cover,
               ),
@@ -49,7 +49,7 @@ class CategoriesModel extends StatelessWidget {
         Text(
           name,
           style: TextStyle(
-            color: ColorFactory.textPrimary,
+            color: ColorsFactory.primary,
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
           ),

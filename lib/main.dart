@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Shup Shup',
-        theme: ThemeData(scaffoldBackgroundColor: ColorFactory.background),
+        theme: ThemeData(scaffoldBackgroundColor: ColorsFactory.background),
         initialRoute: '/main_products_sc',
         getPages: [
           GetPage(name: '/splash', page: () => const SplashScreen()),

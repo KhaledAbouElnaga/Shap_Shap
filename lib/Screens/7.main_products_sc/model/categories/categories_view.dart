@@ -16,7 +16,7 @@ class CategoriesView extends StatelessWidget {
     return Obx(() {
       if (controller.isLoading.value) {
         return const Center(
-          child: CircularProgressIndicator(color: ColorFactory.textPrimary),
+          child: CircularProgressIndicator(color: ColorsFactory.primary),
         );
       }
       return ListView.builder(

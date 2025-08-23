@@ -54,7 +54,7 @@ class _LoginScState extends State<LoginSc> {
               child: Container(
                 padding: EdgeInsets.all(40.r),
                 decoration: BoxDecoration(
-                  color: ColorFactory.white,
+                  color: ColorsFactory.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(60.r),
                     topRight: Radius.circular(60.r),
@@ -71,7 +71,7 @@ class _LoginScState extends State<LoginSc> {
                           style: TextStyle(
                             fontSize: 30.sp,
                             fontWeight: FontWeight.bold,
-                            color: ColorFactory.textPrimary,
+                            color: ColorsFactory.primary,
                           ),
                         ),
                       ),
@@ -82,7 +82,7 @@ class _LoginScState extends State<LoginSc> {
                         controller: controller.emailController,
                         textInputType: TextInputType.emailAddress,
                         // focusNode: emailFocus,
-                        backgroundColor: ColorFactory.background,
+                        backgroundColor: ColorsFactory.background,
                         image: ImagesFactory.email,
                       ),
                       SizedBox(height: 25.h),
@@ -91,7 +91,7 @@ class _LoginScState extends State<LoginSc> {
                         controller: controller.passwordController,
                         textInputType: TextInputType.visiblePassword,
                         isPass: true,
-                        backgroundColor: ColorFactory.background,
+                        backgroundColor: ColorsFactory.background,
                         image: ImagesFactory.lock,
                         // focusNode: passwordFocus,
                       ),
@@ -105,7 +105,7 @@ class _LoginScState extends State<LoginSc> {
                           },
                           child: Text(
                             "Forget Password?",
-                            style: TextStyle(color: ColorFactory.textSecondary),
+                            style: TextStyle(color: ColorsFactory.textPrimery),
                           ),
                         ),
                       ),
@@ -128,15 +128,13 @@ class _LoginScState extends State<LoginSc> {
                           text: TextSpan(
                             text: 'Don\'t you have an account? ',
                             style: TextStyle(
-                              color: ColorFactory.black,
+                              color: ColorsFactory.black,
                               fontWeight: FontWeight.w500,
                             ),
                             children: [
                               TextSpan(
                                 text: 'Sign up',
-                                style: TextStyle(
-                                  color: ColorFactory.textPrimary,
-                                ),
+                                style: TextStyle(color: ColorsFactory.primary),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
                                     controller.emailController.clear();

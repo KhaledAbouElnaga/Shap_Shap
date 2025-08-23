@@ -22,37 +22,27 @@ class _ItemsViewState extends State<ItemsView> {
     return Obx(() {
       if (controller.isLoading.value) {
         return const Center(
-          child: CircularProgressIndicator(color: ColorFactory.textPrimary),
+          child: CircularProgressIndicator(color: ColorsFactory.primary),
         );
       }
       return GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          // mainAxisSpacing: 10,
-          // crossAxisSpacing: 10,
-          childAspectRatio: 0.9,
+          crossAxisSpacing: 10.w,
+          mainAxisSpacing: 10.h,
+          childAspectRatio: 0.8,
         ),
         itemCount: controller.allItemsList.length,
         itemBuilder: (context, index) {
           final cagegory = controller.allItemsList[index];
-          return Padding(
-            padding: EdgeInsets.all(5.0.r),
-            child: ItemsModel(
-              name: cagegory['name'] ?? "An Eroor to Find The Product",
-              image: cagegory['image'] ?? ImagesFactory.notFound,
-              subtitle: 'later',
-              price: cagegory['price'],
-              favIcon: isPresed ? Icons.favorite : Icons.favorite_border,
-              color: isPresed
-                  ? ColorFactory.snackBarError
-                  : ColorFactory.textPrimary,
-              favIconFn: () {
-                setState(() {});
-              },
-              buyIcon: Icons.shopping_cart,
+          return ItemsModel(
+            name: cagegory['name'] ?? "An Eroor to Find The Product",
+            image: cagegory['image'] ?? ImagesFactory.notFound,
+            subtitle: '1KG',
+            price: cagegory['price'],
+            buyIcon: Icons.shopping_cart,
 
-              buyIconFn: () {},
-            ),
+            buyIconFn: () {},
           );
         },
       );

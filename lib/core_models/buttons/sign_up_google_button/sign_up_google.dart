@@ -38,7 +38,7 @@ class SignUpGoogleButton extends StatelessWidget {
           }
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: ColorFactory.background,
+          backgroundColor: ColorsFactory.background,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.r),
           ),
@@ -53,10 +53,7 @@ class SignUpGoogleButton extends StatelessWidget {
             SizedBox(width: 10.w),
             Text(
               'Google',
-              style: TextStyle(
-                color: ColorFactory.textPrimary,
-                fontSize: 14.sp,
-              ),
+              style: TextStyle(color: ColorsFactory.primary, fontSize: 14.sp),
             ),
           ],
         ),
