@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:shap_shap/core_models/snack_bar/snack_bar_model.dart';
-import 'package:shap_shap/factory/color_factory.dart';
+import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
 import 'package:shap_shap/screens/7.main_products_sc/main_products_sc.dart';

@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:shap_shap/core_models/buttons/reset_password_buttton/reset_password_button.dart';
 import 'package:shap_shap/core_models/input_field_widget/input_field_widget.dart';
-import 'package:shap_shap/factory/color_factory.dart';
+import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/4.login_sc/login_sc.dart';
 

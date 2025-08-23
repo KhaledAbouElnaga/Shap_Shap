@@ -8,7 +8,7 @@ import 'package:shap_shap/screens/3.sign_up_in_screens/5.sign_up_sc/sign_up_sc.d
 import 'package:shap_shap/screens/3.sign_up_in_screens/4.login_sc/login_sc.dart';
 import 'package:shap_shap/testing.dart';
 import 'package:shap_shap/screens/7.main_products_sc/main_products_sc.dart';
-import 'package:shap_shap/factory/color_factory.dart';
+import 'package:shap_shap/factory/colors_factory.dart';
 import 'firebase_options.dart';
 import 'screens/1.splash_sc/controller/splash_sc_controller.dart';
 import 'screens/1.splash_sc/splash_sc.dart';

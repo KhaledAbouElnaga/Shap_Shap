@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:shap_shap/core_models/buttons/loge_in_button/log_in_button.dart';
 import 'package:shap_shap/core_models/buttons/sign_up_google_button/sign_up_google.dart';
 import 'package:shap_shap/core_models/input_field_widget/input_field_widget.dart';
-import 'package:shap_shap/factory/color_factory.dart';
+import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
 

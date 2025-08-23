@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shap_shap/core_models/custom_search_bar/custom_search_bar.dart';
-import 'package:shap_shap/factory/color_factory.dart';
+import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/screens/7.main_products_sc/model/categories/categories_view.dart';
 import 'package:shap_shap/screens/7.main_products_sc/model/items/items_view.dart';
 
