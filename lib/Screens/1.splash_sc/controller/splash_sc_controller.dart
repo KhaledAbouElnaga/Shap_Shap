@@ -24,7 +24,7 @@ class SplashScController extends GetxController {
     if (controller.firebaseUser.value == null) {
       Get.offAllNamed('/login');
     } else {
-      Get.offAllNamed('/main_products_sc');
+      Get.offAllNamed('/home_sc');
     }
   }
 }

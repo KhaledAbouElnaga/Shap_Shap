@@ -6,7 +6,7 @@ import 'package:shap_shap/core_models/snack_bar/snack_bar_model.dart';
 import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
-import 'package:shap_shap/screens/7.main_products_sc/main_products_sc.dart';
+import 'package:shap_shap/screens/7.main_products_sc/home_sc.dart';
 
 class SignUpGoogleButton extends StatelessWidget {
   const SignUpGoogleButton({super.key});
@@ -27,7 +27,7 @@ class SignUpGoogleButton extends StatelessWidget {
               type: SnackType.success,
               duration: const Duration(seconds: 2),
             );
-            Get.offAll(() => const MainProductsSc());
+            Get.offAll(() => const HomeSc());
           } catch (e) {
             SnackBarModel.show(
               title: "Error⚠️",

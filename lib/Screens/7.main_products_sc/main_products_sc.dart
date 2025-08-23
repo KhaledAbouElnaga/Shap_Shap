@@ -5,8 +5,8 @@ import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/screens/7.main_products_sc/model/categories/categories_view.dart';
 import 'package:shap_shap/screens/7.main_products_sc/model/items/items_view.dart';
 
-class MainProductsSc extends StatelessWidget {
-  const MainProductsSc({super.key});
+class HomeSc extends StatelessWidget {
+  const HomeSc({super.key});
 
   @override
   Widget build(BuildContext context) {

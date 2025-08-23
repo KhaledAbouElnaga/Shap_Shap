@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shap_shap/backend/firebase/firebase_storage/firebase_storage_controller.dart';
+import 'package:shap_shap/screens/1.splash_sc/controller/splash_sc_controller.dart';
+import 'package:shap_shap/screens/1.splash_sc/splash_sc.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/6.forgot_password_sc/forgot_password_sc.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/5.sign_up_sc/sign_up_sc.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/4.login_sc/login_sc.dart';
+import 'package:shap_shap/screens/7.main_products_sc/home_sc.dart';
 import 'package:shap_shap/testing.dart';
-import 'package:shap_shap/screens/7.main_products_sc/main_products_sc.dart';
 import 'package:shap_shap/factory/colors_factory.dart';
 import 'firebase_options.dart';
-import 'screens/1.splash_sc/controller/splash_sc_controller.dart';
-import 'screens/1.splash_sc/splash_sc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
@@ -41,19 +41,16 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Shup Shup',
         theme: ThemeData(scaffoldBackgroundColor: ColorsFactory.background),
-        initialRoute: '/main_products_sc',
+        initialRoute: '/home_sc',
         getPages: [
-          GetPage(name: '/splash', page: () => const SplashScreen()),
+          GetPage(name: '/splash_sc', page: () => SplashScreen()),
           GetPage(name: '/signUp', page: () => const SignUpSc()),
           GetPage(name: '/login', page: () => const LoginSc()),
           GetPage(
             name: '/forgot_password_sc',
             page: () => const ForgotPasswordSc(),
           ),
-          GetPage(
-            name: '/main_products_sc',
-            page: () => const MainProductsSc(),
-          ),
+          GetPage(name: '/home_sc', page: () => const HomeSc()),
 
           GetPage(name: '/testing', page: () => Testing()),
         ],
