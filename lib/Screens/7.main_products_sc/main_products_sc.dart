@@ -16,7 +16,11 @@ class MainProductsSc extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.all(15.0.r),
+              padding: EdgeInsets.only(
+                left: 10.0.r,
+                right: 10.0.r,
+                top: 10.0.r,
+              ),
               child: Column(
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -29,7 +33,7 @@ class MainProductsSc extends StatelessWidget {
                       fontStyle: FontStyle.italic,
                     ),
                   ),
-                  SizedBox(height: 25.h),
+                  SizedBox(height: 15.h),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5.0.r),
                     child: Row(
@@ -54,7 +58,7 @@ class MainProductsSc extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 15.h),
+                  SizedBox(height: 7.5.h),
                   Padding(
                     padding: EdgeInsets.all(15.0.r),
                     child: Row(
@@ -90,9 +94,9 @@ class MainProductsSc extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 5.h),
+                  // SizedBox(height: 5.h),
                   SizedBox(height: 130.h, child: CategoriesView()),
-                  SizedBox(height: 5.h),
+                  // SizedBox(height: 5.h),
                   Expanded(child: ItemsView()),
                 ],
               ),
