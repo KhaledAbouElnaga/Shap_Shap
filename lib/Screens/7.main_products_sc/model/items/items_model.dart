@@ -37,7 +37,7 @@ class ItemsModel extends StatelessWidget {
     return Center(
       child: Card(
         elevation: 5,
-        color: Colors.white,
+        color: ColorsFactory.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
         ),
@@ -46,18 +46,20 @@ class ItemsModel extends StatelessWidget {
             bottom: 10.r,
             right: 12.r,
             left: 12.r,
-            top: 7.r,
+            top: 10.r,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CachedNetworkImage(
-                imageUrl: image,
-                height: 100.h,
-                cacheManager: cacheManager,
-                placeholder: (context, url) =>
-                    CircularProgressIndicator(color: ColorsFactory.primary),
-                errorWidget: (context, url, error) => Icon(Icons.error),
+              Center(
+                child: CachedNetworkImage(
+                  imageUrl: image,
+                  height: 100.h,
+                  cacheManager: cacheManager,
+                  placeholder: (context, url) =>
+                      CircularProgressIndicator(color: ColorsFactory.primary),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
               ),
               SizedBox(height: 8.h),
               Text(

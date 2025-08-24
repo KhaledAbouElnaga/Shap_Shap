@@ -8,7 +8,8 @@ import 'package:shap_shap/screens/3.sign_up_in_screens/6.forgot_password_sc/forg
 import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/5.sign_up_sc/sign_up_sc.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/4.login_sc/login_sc.dart';
-import 'package:shap_shap/screens/7.main_products_sc/home_sc.dart';
+import 'package:shap_shap/screens/7.main_products_sc/8.home_sc/home_sc.dart';
+import 'package:shap_shap/screens/7.main_products_sc/9.view_all_categories_sc/view_all_categories_sc.dart';
 import 'package:shap_shap/testing.dart';
 import 'package:shap_shap/factory/colors_factory.dart';
 import 'firebase_options.dart';
@@ -51,6 +52,10 @@ class MyApp extends StatelessWidget {
             page: () => const ForgotPasswordSc(),
           ),
           GetPage(name: '/home_sc', page: () => const HomeSc()),
+          GetPage(
+            name: '/view_all_categories_sc',
+            page: () => const ViewAllCategoriesSc(),
+          ),
 
           GetPage(name: '/testing', page: () => Testing()),
         ],

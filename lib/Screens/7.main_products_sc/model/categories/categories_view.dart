@@ -27,7 +27,9 @@ class CategoriesView extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.all(6.0.r),
             child: GestureDetector(
-              onTap: () => {print("testing")},
+              onTap: () {
+                // To Do later
+              },
               child: CategoriesModel(
                 name: cagegory['name'] ?? "An Eroor to Find The Product",
                 image: cagegory['image'] ?? ImagesFactory.notFound,

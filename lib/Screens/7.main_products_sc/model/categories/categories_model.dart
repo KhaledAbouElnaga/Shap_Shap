@@ -24,7 +24,7 @@ class CategoriesModel extends StatelessWidget {
     return Column(
       children: [
         Card(
-          color: ColorsFactory.light,
+          color: ColorsFactory.white,
           elevation: 5,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50.r),
