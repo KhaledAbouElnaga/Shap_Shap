@@ -9,6 +9,7 @@ import 'package:shap_shap/screens/3.sign_up_in_screens/6.forgot_password_sc/forg
 import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/5.sign_up_sc/sign_up_sc.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/4.login_sc/login_sc.dart';
+import 'package:shap_shap/screens/6.products_sc/products_sc.dart';
 import 'package:shap_shap/screens/7.main_products_sc/8.home_sc/home_sc.dart';
 import 'package:shap_shap/screens/7.main_products_sc/10.view_all_categories_sc/view_all_categories_sc.dart';
 import 'package:shap_shap/screens/7.main_products_sc/9.user_profile_sc/user_profile_sc.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Shup Shup',
         theme: ThemeData(scaffoldBackgroundColor: ColorsFactory.background),
-        initialRoute: '/splash_sc',
+        initialRoute: '/home_sc',
         getPages: [
           GetPage(name: '/splash_sc', page: () => SplashScreen()),
           GetPage(name: '/signUp', page: () => const SignUpSc()),
@@ -55,11 +56,13 @@ class MyApp extends StatelessWidget {
             page: () => const ForgotPasswordSc(),
           ),
           GetPage(name: '/home_sc', page: () => const HomeSc()),
+          GetPage(name: "/user_profile_sc", page: () => const UserProfileSc()),
           GetPage(
             name: '/view_all_categories_sc',
             page: () => const ViewAllCategoriesSc(),
           ),
-          GetPage(name: "/user_profile_sc", page: () => const UserProfileSc()),
+          GetPage(name: "/products_sc", page: () => const ProductsSc()),
+
           GetPage(name: '/testing', page: () => Testing()),
         ],
       ),
