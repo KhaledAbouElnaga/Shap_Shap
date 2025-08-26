@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -43,10 +44,23 @@ class SignUpInController extends GetxController {
     try {
       isLoading.value = true;
       errorMessage.value = '';
-      await _auth.createUserWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-      );
+      UserCredential userCredential = await _auth
+          .createUserWithEmailAndPassword(
+            email: emailController.text.trim(),
+            password: passwordController.text.trim(),
+          );
+
+      // Save user data in Firestore
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(userCredential.user!.uid)
+          .set({
+            "name": nameController.text.trim(),
+            "email": userCredential.user!.email,
+            "createdAt": FieldValue.serverTimestamp(),
+            "isAdmin": false, // Default role
+          });
+
       nameController.clear();
       emailController.clear();
       passwordController.clear();
@@ -92,11 +106,12 @@ class SignUpInController extends GetxController {
   }
 
   // Sign in with Google method
+  // Sign in with Google method
   Future<UserCredential> signInWithGoogle() async {
     try {
       await _initGoogleSignIn();
 
-      final GoogleSignInAccount? googleUser = await googleSignIn.authenticate();
+      final GoogleSignInAccount googleUser = await googleSignIn.authenticate();
       if (googleUser == null) {
         throw FirebaseAuthException(
           code: 'ERROR_ABORTED_BY_USER',
@@ -131,7 +146,25 @@ class SignUpInController extends GetxController {
         idToken: idToken,
       );
 
-      return await FirebaseAuth.instance.signInWithCredential(credential);
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithCredential(credential);
+
+      // Save user data in Firestore if not exists
+      final userDoc = FirebaseFirestore.instance
+          .collection("users")
+          .doc(userCredential.user!.uid);
+      final docSnapshot = await userDoc.get();
+
+      if (!docSnapshot.exists) {
+        await userDoc.set({
+          "name": googleUser.displayName ?? "",
+          "email": googleUser.email,
+          "createdAt": FieldValue.serverTimestamp(),
+          "isAdmin": false, // Default role
+        });
+      }
+
+      return userCredential;
     } on FirebaseAuthException catch (e) {
       print("FirebaseAuthException: ${e.code} - ${e.message}");
       rethrow;

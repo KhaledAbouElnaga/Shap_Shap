@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:shap_shap/core_models/buttons/loge_in_button/log_in_button.dart';
 import 'package:shap_shap/core_models/buttons/sign_up_google_button/sign_up_google.dart';
 import 'package:shap_shap/core_models/input_field_widget/input_field_widget.dart';
-import 'package:shap_shap/factory/color_factory.dart';
+import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
 
@@ -54,7 +54,7 @@ class _LoginScState extends State<LoginSc> {
               child: Container(
                 padding: EdgeInsets.all(40.r),
                 decoration: BoxDecoration(
-                  color: ColorFactory.white,
+                  color: ColorsFactory.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(60.r),
                     topRight: Radius.circular(60.r),
@@ -71,7 +71,7 @@ class _LoginScState extends State<LoginSc> {
                           style: TextStyle(
                             fontSize: 30.sp,
                             fontWeight: FontWeight.bold,
-                            color: ColorFactory.textPrimary,
+                            color: ColorsFactory.primary,
                           ),
                         ),
                       ),
@@ -82,7 +82,7 @@ class _LoginScState extends State<LoginSc> {
                         controller: controller.emailController,
                         textInputType: TextInputType.emailAddress,
                         // focusNode: emailFocus,
-                        backgroundColor: ColorFactory.background,
+                        backgroundColor: ColorsFactory.background,
                         image: ImagesFactory.email,
                       ),
                       SizedBox(height: 25.h),
@@ -91,7 +91,7 @@ class _LoginScState extends State<LoginSc> {
                         controller: controller.passwordController,
                         textInputType: TextInputType.visiblePassword,
                         isPass: true,
-                        backgroundColor: ColorFactory.background,
+                        backgroundColor: ColorsFactory.background,
                         image: ImagesFactory.lock,
                         // focusNode: passwordFocus,
                       ),
@@ -105,7 +105,7 @@ class _LoginScState extends State<LoginSc> {
                           },
                           child: Text(
                             "Forget Password?",
-                            style: TextStyle(color: ColorFactory.textSecondary),
+                            style: TextStyle(color: ColorsFactory.textPrimery),
                           ),
                         ),
                       ),
@@ -128,15 +128,13 @@ class _LoginScState extends State<LoginSc> {
                           text: TextSpan(
                             text: 'Don\'t you have an account? ',
                             style: TextStyle(
-                              color: ColorFactory.black,
+                              color: ColorsFactory.black,
                               fontWeight: FontWeight.w500,
                             ),
                             children: [
                               TextSpan(
                                 text: 'Sign up',
-                                style: TextStyle(
-                                  color: ColorFactory.textPrimary,
-                                ),
+                                style: TextStyle(color: ColorsFactory.primary),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
                                     controller.emailController.clear();

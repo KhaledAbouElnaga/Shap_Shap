@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shap_shap/factory/color_factory.dart';
+import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InputFieldWidget extends StatefulWidget {
@@ -54,7 +54,7 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
               focusNode: widget.focusNode,
               keyboardType: widget.textInputType,
               style: TextStyle(
-                color: ColorFactory.black,
+                color: ColorsFactory.black,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
               ),
@@ -78,7 +78,7 @@ class _InputFieldWidgetState extends State<InputFieldWidget> {
               },
               icon: Icon(
                 _obsecure ? Icons.visibility_off : Icons.visibility,
-                color: ColorFactory.black,
+                color: ColorsFactory.black,
               ),
             ),
         ],

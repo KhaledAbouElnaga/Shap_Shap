@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:shap_shap/core_models/buttons/create_an_account_button/create_an_account_button.dart';
 import 'package:shap_shap/core_models/buttons/sign_up_google_button/sign_up_google.dart';
 import 'package:shap_shap/core_models/input_field_widget/input_field_widget.dart';
-import 'package:shap_shap/factory/color_factory.dart';
+import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
 
@@ -62,7 +62,7 @@ class _SignUpScState extends State<SignUpSc> {
               child: Container(
                 padding: EdgeInsets.all(40.r),
                 decoration: BoxDecoration(
-                  color: ColorFactory.white,
+                  color: ColorsFactory.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(60.r),
                     topRight: Radius.circular(60.r),
@@ -79,7 +79,7 @@ class _SignUpScState extends State<SignUpSc> {
                           style: TextStyle(
                             fontSize: 30.sp,
                             fontWeight: FontWeight.bold,
-                            color: ColorFactory.textPrimary,
+                            color: ColorsFactory.primary,
                           ),
                         ),
                       ),
@@ -88,7 +88,7 @@ class _SignUpScState extends State<SignUpSc> {
                         hintText: 'Name',
                         textInputType: TextInputType.name,
                         controller: controller.nameController,
-                        backgroundColor: ColorFactory.background,
+                        backgroundColor: ColorsFactory.background,
                         image: ImagesFactory.person,
                         // focusNode: nameFocus,
                       ),
@@ -98,7 +98,7 @@ class _SignUpScState extends State<SignUpSc> {
                         controller: controller.emailController,
                         textInputType: TextInputType.emailAddress,
                         // focusNode: emailFocus,
-                        backgroundColor: ColorFactory.background,
+                        backgroundColor: ColorsFactory.background,
                         image: ImagesFactory.email,
                       ),
                       SizedBox(height: 25.h),
@@ -107,7 +107,7 @@ class _SignUpScState extends State<SignUpSc> {
                         controller: controller.passwordController,
                         textInputType: TextInputType.visiblePassword,
                         isPass: true,
-                        backgroundColor: ColorFactory.background,
+                        backgroundColor: ColorsFactory.background,
                         image: ImagesFactory.lock,
                         // focusNode: passwordFocus,
                       ),
@@ -130,15 +130,13 @@ class _SignUpScState extends State<SignUpSc> {
                           text: TextSpan(
                             text: 'Do you have an account? ',
                             style: TextStyle(
-                              color: ColorFactory.black,
+                              color: ColorsFactory.black,
                               fontWeight: FontWeight.w500,
                             ),
                             children: [
                               TextSpan(
                                 text: 'Sign In',
-                                style: TextStyle(
-                                  color: ColorFactory.textPrimary,
-                                ),
+                                style: TextStyle(color: ColorsFactory.primary),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
                                     controller.emailController.clear();

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:shap_shap/core_models/snack_bar/snack_bar_model.dart';
-import 'package:shap_shap/factory/color_factory.dart';
+import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
 
@@ -44,11 +44,12 @@ class CreateAccountButton extends StatelessWidget {
               type: SnackType.success,
               duration: const Duration(seconds: 2),
             );
+            await Future.delayed(const Duration(seconds: 1));
             Get.offAllNamed("/login");
           }
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: ColorFactory.background,
+          backgroundColor: ColorsFactory.background,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.r),
           ),
@@ -64,10 +65,7 @@ class CreateAccountButton extends StatelessWidget {
             SizedBox(width: 8.w),
             Text(
               buttonName,
-              style: TextStyle(
-                color: ColorFactory.textPrimary,
-                fontSize: 14.sp,
-              ),
+              style: TextStyle(color: ColorsFactory.primary, fontSize: 14.sp),
             ),
           ],
         ),
