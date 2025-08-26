@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:shap_shap/backend/firebase/firebase_storage/firebase_storage_controller.dart';
 import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
-import 'package:shap_shap/screens/7.main_products_sc/9.view_all_categories_sc/all_categories_model.dart';
+import 'package:shap_shap/screens/7.main_products_sc/10.view_all_categories_sc/all_categories_model.dart';
 
 class ViewAllCategoriesSc extends StatelessWidget {
   const ViewAllCategoriesSc({super.key});

@@ -24,10 +24,6 @@ class SplashScController extends GetxController {
 
   void navigateToNextScreen() async {
     await checkIdToken.checkUserDeleted();
-    if (controller.firebaseUser.value == null) {
-      Get.offAllNamed('/login');
-    } else {
-      Get.offAllNamed('/home_sc');
-    }
+    Get.offAllNamed('/home_sc');
   }
 }
