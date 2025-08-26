@@ -5,7 +5,7 @@ import 'package:shap_shap/backend/firebase/firebase_storage/firebase_storage_con
 import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
 import 'package:shap_shap/screens/6.products_sc/products_sc.dart';
-import 'package:shap_shap/screens/7.main_products_sc/model/categories/categories_model.dart';
+import 'package:shap_shap/screens/7.home_sc/model/some_categories/categories_model.dart';
 
 class CategoriesView extends StatelessWidget {
   const CategoriesView({super.key});

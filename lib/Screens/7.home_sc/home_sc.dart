@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
-import 'package:shap_shap/screens/7.main_products_sc/10.view_all_categories_sc/view_all_categories_sc.dart';
-import 'package:shap_shap/screens/7.main_products_sc/model/categories/categories_view.dart';
-import 'package:shap_shap/screens/7.main_products_sc/model/items/items_view.dart';
+import 'package:shap_shap/screens/7.home_sc/9.view_all_categories_sc/view_all_categories_sc.dart';
+import 'package:shap_shap/screens/7.home_sc/model/some_categories/categories_view.dart';
+import 'package:shap_shap/screens/7.home_sc/model/all_items/items_view.dart';
 
 class HomeSc extends StatelessWidget {
   const HomeSc({super.key});

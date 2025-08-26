@@ -10,9 +10,9 @@ import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_co
 import 'package:shap_shap/screens/3.sign_up_in_screens/5.sign_up_sc/sign_up_sc.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/4.login_sc/login_sc.dart';
 import 'package:shap_shap/screens/6.products_sc/products_sc.dart';
-import 'package:shap_shap/screens/7.main_products_sc/8.home_sc/home_sc.dart';
-import 'package:shap_shap/screens/7.main_products_sc/10.view_all_categories_sc/view_all_categories_sc.dart';
-import 'package:shap_shap/screens/7.main_products_sc/9.user_profile_sc/user_profile_sc.dart';
+import 'package:shap_shap/screens/7.home_sc/home_sc.dart';
+import 'package:shap_shap/screens/7.home_sc/9.view_all_categories_sc/view_all_categories_sc.dart';
+import 'package:shap_shap/screens/7.home_sc/8.user_profile_sc/user_profile_sc.dart';
 import 'package:shap_shap/testing.dart';
 import 'package:shap_shap/factory/colors_factory.dart';
 import 'firebase_options.dart';
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Shup Shup',
         theme: ThemeData(scaffoldBackgroundColor: ColorsFactory.background),
-        initialRoute: '/home_sc',
+        initialRoute: '/splash_sc',
         getPages: [
           GetPage(name: '/splash_sc', page: () => SplashScreen()),
           GetPage(name: '/signUp', page: () => const SignUpSc()),

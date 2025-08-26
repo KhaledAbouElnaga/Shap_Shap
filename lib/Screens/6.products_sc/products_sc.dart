@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:shap_shap/backend/firebase/firebase_storage/firebase_storage_controller.dart';
 import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
-import 'package:shap_shap/screens/7.main_products_sc/model/items/items_model.dart';
+import 'package:shap_shap/screens/7.home_sc/model/all_items/items_model.dart';
 
 class ProductsSc extends StatelessWidget {
   final String? categoryName;
