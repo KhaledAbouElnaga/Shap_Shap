@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:shap_shap/backend/firebase/firebase_storage/firebase_storage_controller.dart';
 import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/factory/images_factory.dart';
+import 'package:shap_shap/screens/6.products_sc/products_sc.dart';
 import 'package:shap_shap/screens/7.main_products_sc/model/categories/categories_model.dart';
 
 class CategoriesView extends StatelessWidget {
@@ -28,7 +29,8 @@ class CategoriesView extends StatelessWidget {
             padding: EdgeInsets.all(6.0.r),
             child: GestureDetector(
               onTap: () {
-                // To Do later
+                controller.getItemsByCategory(cagegory['id']);
+                Get.to(ProductsSc(categoryName: cagegory['name']));
               },
               child: CategoriesModel(
                 name: cagegory['name'] ?? "An Eroor to Find The Product",

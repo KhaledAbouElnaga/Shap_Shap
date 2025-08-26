@@ -8,8 +8,11 @@ class FirebaseStorageController extends GetxController {
   RxList<Map<String, dynamic>> allCategoiesList = <Map<String, dynamic>>[].obs;
   //.take(n).tolist >>> n = how many category i wanna show
   RxList<Map<String, dynamic>> someCategoiesList = <Map<String, dynamic>>[].obs;
-
+  //for all items
   RxList<Map<String, dynamic>> allItemsList = <Map<String, dynamic>>[].obs;
+  //for items based on categoy
+  RxList<Map<String, dynamic>> itemsByCategorList =
+      <Map<String, dynamic>>[].obs;
 
   var isLoading = true.obs;
 
@@ -61,45 +64,41 @@ class FirebaseStorageController extends GetxController {
               isLoading.value = false;
             },
             onError: (error) {
-              print("Error fetching items in realtime: $error");
+              // print("Error fetching items in realtime: $error");
               isLoading.value = false;
             },
           );
     } catch (e) {
-      print("Error setting up items listener: $e");
+      // print("Error setting up items listener: $e");
       isLoading.value = false;
     }
-    // try {
-    //   isLoading.value = true;
-    //   allItemsList.clear();
-    //   firestore.collection("categories").snapshots().listen((
-    //     categoriesSnapshot,
-    //   ) async {
-    //     List<Map<String, dynamic>> collectList = [];
-    //     for (var categoryDoc in categoriesSnapshot.docs) {
-    //       //  itemsهنا إحنا بنمسك المتغير اللي إسمه كاتيدوري ب الكتغير الجديد اللي تم إنشائه ب .ماب اللي اسمه
-    //       //id وبعد كدا بقوله ضيفلي كل البيانات في الليست بتاعتي لكن زود عليها حاجه بسيطه هي ال
-    //       categoryDoc.reference.collection("items").snapshots().listen((items) {
-    //         collectList.addAll(
-    //           items.docs
-    //               .map(
-    //                 (itemsDoc) => {
-    //                   "id": itemsDoc.id,
-    //                   "categoryId": categoryDoc.id,
-    //                   ...itemsDoc.data(),
-    //                 },
-    //               )
-    //               .toList(),
-    //         );
-    //         //.assignAll = renewing the whole data/ updated all the time
-    //         allItemsList.assignAll(collectList);
-    //         isLoading.value = false;
-    //       });
-    //     }
-    //   });
-    // } catch (e) {
-    //   print("Error fetching items in realtime: $e");
-    //   isLoading.value = false;
-    // }
+  }
+
+  void getItemsByCategory(String categoryId) async {
+    try {
+      isLoading.value = true;
+      firestore
+          .collection("categories")
+          .doc(categoryId)
+          .collection("items")
+          .snapshots()
+          .listen(
+            (itemsSnapshot) {
+              itemsByCategorList.assignAll(
+                itemsSnapshot.docs.map((itemDoc) {
+                  return {"id": itemDoc.id, ...itemDoc.data()};
+                }).toList(),
+              );
+              isLoading.value = false;
+            },
+            onError: (error) {
+              // print("Error fetching items for category $categoryId: $error");
+              isLoading.value = false;
+            },
+          );
+    } catch (e) {
+      // print("Error setting up category items listener: $e");
+      isLoading.value = false;
+    }
   }
 }

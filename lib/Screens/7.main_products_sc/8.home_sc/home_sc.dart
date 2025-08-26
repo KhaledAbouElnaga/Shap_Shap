@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shap_shap/factory/colors_factory.dart';
 import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
-import 'package:shap_shap/screens/7.main_products_sc/9.view_all_categories_sc/view_all_categories_sc.dart';
+import 'package:shap_shap/screens/7.main_products_sc/10.view_all_categories_sc/view_all_categories_sc.dart';
 import 'package:shap_shap/screens/7.main_products_sc/model/categories/categories_view.dart';
 import 'package:shap_shap/screens/7.main_products_sc/model/items/items_view.dart';
 
@@ -36,17 +36,26 @@ class HomeSc extends StatelessWidget {
                     // Spacer(),
                     Positioned(
                       right: 0,
-                      child: IconButton(
-                        onPressed: () {
-                          try {
-                            controller.signOut();
-                            Get.offNamed('/login');
-                          } catch (e) {
-                            throw Exception(e);
-                          }
-                        },
-                        icon: Icon(Icons.login_rounded),
-                      ),
+                      top: 2,
+                      child: Obx(() {
+                        //checking if the user has been loged in or not
+                        // based on that her will go to the next screen
+                        final user = controller.firebaseUser.value;
+                        return IconButton(
+                          icon: Icon(
+                            Icons.account_circle,
+                            size: 40,
+                            color: ColorsFactory.primary,
+                          ),
+                          onPressed: () {
+                            if (user == null) {
+                              Get.toNamed("/login");
+                            } else {
+                              Get.toNamed("/user_profile_sc");
+                            }
+                          },
+                        );
+                      }),
                     ),
                   ],
                 ),
