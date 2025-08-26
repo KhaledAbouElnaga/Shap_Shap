@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shap_shap/factory/colors_factory.dart';
-import 'package:shap_shap/factory/images_factory.dart';
 
 class AllCategoriesModel extends StatefulWidget {
   final String name;

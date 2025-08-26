@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shap_shap/factory/colors_factory.dart';
+import 'package:shap_shap/screens/3.sign_up_in_screens/controller/sigin_in_up_controller.dart';
 import 'package:shap_shap/screens/7.main_products_sc/9.view_all_categories_sc/view_all_categories_sc.dart';
 import 'package:shap_shap/screens/7.main_products_sc/model/categories/categories_view.dart';
 import 'package:shap_shap/screens/7.main_products_sc/model/items/items_view.dart';
@@ -11,19 +12,43 @@ class HomeSc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final SignUpInController controller = Get.find<SignUpInController>();
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(left: 10.0.r, right: 10.0.r, top: 10.0.r),
           child: Column(
             children: [
-              Text(
-                'Shup Shup',
-                style: TextStyle(
-                  fontSize: 40.sp,
-                  fontWeight: FontWeight.bold,
-                  color: ColorsFactory.primary,
-                  fontStyle: FontStyle.italic,
+              SizedBox(
+                width: double.infinity,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Text(
+                      'Shup Shup',
+                      style: TextStyle(
+                        fontSize: 40.sp,
+                        fontWeight: FontWeight.bold,
+                        color: ColorsFactory.primary,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                    // Spacer(),
+                    Positioned(
+                      right: 0,
+                      child: IconButton(
+                        onPressed: () {
+                          try {
+                            controller.signOut();
+                            Get.offNamed('/login');
+                          } catch (e) {
+                            throw Exception(e);
+                          }
+                        },
+                        icon: Icon(Icons.login_rounded),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(height: 15.h),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:shap_shap/backend/firebase/firebase_check_id_token/firebase_check_id_token.dart';
 import 'package:shap_shap/backend/firebase/firebase_storage/firebase_storage_controller.dart';
 import 'package:shap_shap/screens/1.splash_sc/controller/splash_sc_controller.dart';
 import 'package:shap_shap/screens/1.splash_sc/splash_sc.dart';
@@ -19,6 +20,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
+  Get.put(FirebaseCheckIdToken());
   Get.lazyPut(() => SplashScController(), fenix: true);
   Get.put(SignUpInController());
   Get.put(FirebaseStorageController());
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Shup Shup',
         theme: ThemeData(scaffoldBackgroundColor: ColorsFactory.background),
-        initialRoute: '/home_sc',
+        initialRoute: '/splash_sc',
         getPages: [
           GetPage(name: '/splash_sc', page: () => SplashScreen()),
           GetPage(name: '/signUp', page: () => const SignUpSc()),

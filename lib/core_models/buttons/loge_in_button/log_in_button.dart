@@ -58,6 +58,7 @@ class LogInButton extends StatelessWidget {
               type: SnackType.success,
               duration: const Duration(seconds: 2),
             );
+            await Future.delayed(const Duration(seconds: 1));
             Get.offAll(() => const HomeSc());
           }
         },
